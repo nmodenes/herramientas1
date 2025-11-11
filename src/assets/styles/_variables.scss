@@ -1,0 +1,42 @@
+@use "sass:color";
+
+$font-family-serif: "Noto Serif JP", "Georgia", "Times New Roman", serif;
+
+$main-text-color: #2e2e2e;
+$main-background-color: #f9f7f3;
+
+$header-text-color: #000;
+$footer-text-color: #fff;
+
+$gradient-color-1: #811616;
+$gradient-color-2: #ca7d74;
+
+$card-title-color: #b30e0e;
+$card-link-color: #b30e0e;
+$card-border-button-color: #b30e0e;
+
+$card-background-color: #fff;
+$card-border-color: #f1e4d0;
+
+$cardTip-color-word: #b30e0e;
+
+$color2: grey; //RETOCAR
+$color4: green; //RETOCAR
+
+
+$min-column-size: 280px;
+$max-main-width: 1200px;
+
+// Mixin para indicar el color de un texto
+// (con un color por defecto)
+@mixin text-color($color: $main-text-color) {
+  color: $color;
+}
+
+// Mixin para añadir un fondo de color al header y al footer,
+// además de añadir una imagen de fondo (opcional)
+@mixin banner($orientation, $color1, $color2, $image: none) {
+  background-image: linear-gradient(to $orientation, $color1, $color2), $image;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
