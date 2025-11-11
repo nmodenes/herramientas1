@@ -1,5 +1,13 @@
 @use "../variables";
 
+/*
+** En det1 y links hay un pequeño desbordamiento (movile)--> mirar porqué
+** movile: centrar cardTips en det1
+** Acabar de rellenar links: det1
+** Acabar de mirar el enrutamiento en navigation y poner los ficheros correspondientes en sus carpetas
+*/
+
+
 /********** GENERAL **********/
 
 body {
@@ -9,6 +17,9 @@ body {
   line-height: 1.6;
   @include variables.text-color();
   background-color: variables.$main-background-color;
+
+  /*OVERFLOW-X MIRAR*/
+  //overflow-x: hidden;
 }
 
 
@@ -286,7 +297,7 @@ iframe {
   padding-left: 2rem;
   font-size: .9rem;
   
- 
+  min-width: 0;
 
 }
 
@@ -327,79 +338,7 @@ iframe {
   margin: auto;
   box-sizing: border-box;
 }
-/*******************************************************************************************/
 
-/********** RESPONSIVE **********/
-
-@media (max-width: 1300px) {
-
-  nav {
-    // Menú hamburguesa
-    .menu-toggle {
-      display: block;
-      padding: .5rem 1rem;
-      font-size: 1.5rem;
-      color: variables.$header-text-color;
-      cursor: pointer;
-      background: none;
-      border: none;
-    }
-
-    ul {
-      flex-direction: column;
-      align-items: center;
-      max-block-size: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: variables.$gradient-color-2;
-      transition: max-height .3s ease;
-    }
-
-    ul.active {
-      max-block-size: 500px;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .header__title {
-    font-size: 2.5rem;
-  }
-
-  .header__paragraph {
-    font-size: 1.5rem;
-  }
-
-  main {
-    padding: 1rem;
-  }
-
-  .card__content p {
-    font-size: .95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .header__title {
-    font-size: 2rem;
-  }
-
-  .header__paragraph {
-    font-size: 1rem;
-  }
-
-  .card__image,
-  .cardTip__content__img {
-    block-size: auto;
-  }
-  .card,
-  .cardTip__content {
-    max-inline-size: 80%;
-    justify-content: center;
-    align-items: center;
-  }
-
-}
 
 /******* HERO IMAGE ***********/
 .hero-image-1,
@@ -455,7 +394,7 @@ iframe {
   color: rgb(0, 0, 0);
     
   //padding: 2rem;
-  height: 5rem;
+  //height: 5rem;
   max-width: 100%; 
   box-sizing: border-box; 
   //margin-right: 1rem;
@@ -478,10 +417,11 @@ iframe {
   border-radius: .4rem;
 }
 */
-
+/*
 .distribution {
   display:flex;
   justify-content: center;
+  
 
 }
 .distribution__right {
@@ -492,7 +432,37 @@ iframe {
 .distribution__left {
   align-items: left;
   padding: 0 1rem 0 0;
+}*/
+
+
+.distribution {
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  
+
 }
+
+.distribution__right,
+.distribution__left {
+  flex: 1;
+  min-width: 0;
+
+  /* Para centrar la imagen en pantalla */
+  img {
+    display: block;
+    margin: 0 auto;
+    /*
+    max-width: 100%;
+    height: auto;
+    */
+  }
+}
+
+.distribution__right {
+  padding: 0 0 0 2rem;
+}
+
 
 /****TABLAS****/
 table {
@@ -569,6 +539,104 @@ caption {
 .table__icon {
   font-size: 3rem;
 }
+/*******************************************************************************************/
+
+/********** RESPONSIVE **********/
+
+@media (max-width: 1300px) {
+
+  nav {
+    // Menú hamburguesa
+    .menu-toggle {
+      display: block;
+      padding: .5rem 1rem;
+      font-size: 1.5rem;
+      color: variables.$header-text-color;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    ul {
+      flex-direction: column;
+      align-items: center;
+      max-block-size: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: variables.$gradient-color-2;
+      transition: max-height .3s ease;
+    }
+
+    ul.active {
+      max-block-size: 500px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header__title {
+    font-size: 2.5rem;
+  }
+
+  .header__paragraph {
+    font-size: 1.5rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .card__content p {
+    font-size: .95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__title {
+    font-size: 2rem;
+  }
+
+  .header__paragraph {
+    font-size: 1rem;
+  }
+
+  .card__image,
+  .cardTip__content__img {
+    block-size: auto;
+  }
+  .card,
+  .cardTip__content {
+    max-inline-size: 80%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Contenedor que en formato desktop y tablet tendrá una distribución del contenido (imágenes y texto)
+   * de izquierda y derecha. 
+   * En movile cambiará a una distribución en columna para mostrar el contenido verticalmente. */
+  .distribution {
+    flex-direction: column;
+  }
+
+  .distribution__right,
+  .distribution__left {
+    width: 100%;
+    padding: 0;
+
+    /*
+    //Para centrar la imagen en pantalla
+    img {
+      display: block;
+      margin: 0 auto;
+    */
+  }
+  /*
+  .distribution__right {
+    padding: 0 0 0 2rem;
+  }
+    */
+}
+
 
 
 

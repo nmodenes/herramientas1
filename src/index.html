@@ -1,16 +1,54 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parcel Vanilla App</title>
-    <link rel="stylesheet" href="./assets/styles/style.css">
-  </head>
-  <body>
-    <include src="./views/header.html"></include>
-    <include src="./views/navigation.html"></include>
-    
-    <h1>Parcel Vanilla App</h1>
-    <p>Edit <code>src/index.html</code> to get started!</p>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explora los barrios más emblemáticos de Tokio (en detalle Taitō y Shibuya). Consulta las fuentes y atribuciones del contenido.">
+  <title>Lugares emblemáticos de Tokio</title>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss">
+</head>
+
+  
+<body>
+
+  <include src="./views/header.html"></include>
+  <include src="./views/navigation.html"></include>
+
+  <main>
+
+    <article>
+      <p><b>Tokio</b> es la capital de <b>Japón</b>, ubicada en el centro este de la isla de Honshu, concretamente en la región de Kantō. Es <b>la ciudad más poblada del mundo</b>, con una población de unos 40 millones de habitantes. Es el centro de la política, economía, educación, comunicación y cultura del país. Cuenta también con la mayor concentración de sedes corporativas, instituciones financieras, universidades y colegios, museos, teatros, establecimientos comerciales y de entretenimiento de todo Japón.</p>
+
+      <p>La Megalópolis de Tokio se divide en 23 barrios especiales y otros 30 municipios comunes (ciudades, villas y pueblos). </p>
+
+      <div class="distribution">
+        <div class="distribution__left">
+          <img class="img-fluid" src="./assets/images/western_tokio_area.jpg"alt="Tokio Occidental mostrando sus 30 municipios">
+        </div>
+        <div class="distribution__right">
+          <p><b>Tokio Occidental</b>, también conocido como zona de Tama, consta de 30 municipios comunes. A diferencia de la parte oriental, que consta de 23 barrios especiales.</p>
+        </div>
+      </div>
+
+      <div class="distribution">
+        <div class="distribution__left">
+          <p>En esta web nos adentraremos en los <b>23 barrios especiales.</b></p>
+          <p>En la categoría de Barrios, podrás ver qué ofrece cada barrio.</p>
+          <p>Entraremos en detalle en el barrio de Taitō y en el barrio de Shibuya.</p>
+        </div>
+        <div class="distribution__right"> <!--mirar-->
+          <img class="img-fluid" src="./assets/images/tokio_special_wards.png" width="300" title="derivative work:w:User:ASDFGHof 包括自治体区画図 13000.svg: ja:User:Lincun, CC BY-SA 3.0 <http://creativecommons.org/licenses/by-sa/3.0/>, via Wikimedia Commons" alt="Tokio Oriental mostrando sus 23 barrios">
+        </div>
+      </div>
+
+    </article>
+
+  </main>
+
+  <include src="./views/footer.html"></include>
+  <script type="module" src="./assets/scripts/main.js"></script>
+</body>
 </html>
