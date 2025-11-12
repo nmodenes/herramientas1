@@ -233,76 +233,38 @@ iframe {
 }
 
 /*******CARD TIPS*********/
-.cardTip {
+.card__toolTip {
   position: relative;
   cursor: help;      
   color: variables.$cardTip-color-word;
   //font-weight: bold;
 }
 
-.cardTip__content {
+
+.card__toolTip__content {
+
   visibility: hidden;
   opacity: 0;
-  //width: 20rem;
-  //max-width: 90vw;
-  //width: clamp(200px, 80%, 30rem);
+  transition: opacity 0.3s ease;
+  position: absolute;
+
   background: #fff;
   color: #000;
-  //text-align: left;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  position: absolute;
-  z-index: 10;
-  top: 120%;     
+  border-radius: .5rem;
+  padding: .5rem;
+  box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.5);
+
+  //para que el tooltip se muestre por encima de otros elementos
+  z-index: 1;
+  top: 100%;     
   left: 50%;
   transform: translateX(-50%);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: opacity 0.3s ease;
-  display: flex;
-  //display: grid;
-  //grid-template-columns: auto 1fr;
-  //gap: 1rem;
+  width: 10rem;
  
-  flex-wrap: wrap;
-  width: clamp(200px, 80%, 30rem);
-  max-width: 90vw;
-  gap: 1rem;
-  flex-direction: column;
- 
+}
   
- 
-}
-
-
-
-.cardTip__content__img {
-
-  //display: flex;
-  max-width: 30%;
-  //width: 20%;
- // max-width: 100%;
-  height: auto;
-  //border-radius: 2rem;
-  margin-bottom: 5px;
-  align-items: left;
-  display: block;
-}
-
-
-
-.cardTip__content__text {
-  align-items: right;
-  flex: 1;
-  padding-left: 2rem;
-  font-size: .9rem;
-  
-  min-width: 0;
-
-}
-
-
-.cardTip:hover .cardTip__content {
+.card__toolTip:hover .card__toolTip__content {
   visibility: visible;
   opacity: 1;
 }
@@ -322,10 +284,12 @@ iframe {
   width: 100%;
   height: auto;
 
+  /*
   img {
     max-width: 80%;
     height: auto;
   }
+    */
 }
 
 .content_cards,
@@ -359,15 +323,19 @@ iframe {
   //width: 100%;
   //height: 560px;
     
-  width: 100%;
+ 
   //height: 24rem;
 
   //background-image: url(../images/hero_sensoji.jpg); 
   object-fit: cover;
+
+  width: 100%;
+  //max-width: 100%;
 }
 
 .hero-image-1 {
   background-image: url(../images/hero_sensoji.jpg); 
+
   height: 24rem;
 }
 
@@ -461,6 +429,21 @@ iframe {
 
 .distribution__right {
   padding: 0 0 0 2rem;
+}
+
+.distribution__right figure {
+  text-align: center;
+}
+
+.distribution__right figcaption a {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: #666;
+  text-decoration: none;
+}
+
+.distribution__right figcaption a:hover {
+  text-decoration: underline;
 }
 
 
@@ -600,12 +583,19 @@ caption {
     font-size: 1rem;
   }
 
+  /*
   .card__image,
-  .cardTip__content__img {
+  .card_-toolTip__content__img {
     block-size: auto;
   }
+    */
+
+  .card__image {
+    block-size: auto;
+  }
+
   .card,
-  .cardTip__content {
+  .card__toolTip__content {
     max-inline-size: 80%;
     justify-content: center;
     align-items: center;
@@ -624,7 +614,6 @@ caption {
     padding: 0;
 
     /*
-    //Para centrar la imagen en pantalla
     img {
       display: block;
       margin: 0 auto;
@@ -635,6 +624,32 @@ caption {
     padding: 0 0 0 2rem;
   }
     */
+    /*
+  .card__toolTip {
+    position: relative;
+    display: inline-block;
+  }
+    */
+  
+
+
+  .card__toolTip__content {
+    /* En movile el contenido de la card__toolTip aparecerá en el centro de la pantalla. Si no se producía desbordamiento. */
+    position: inherit;
+    /* #1: Para quitar el espacio en blanco (reservado al espacio que ocupa la cardTip) aunque esté invisible. 
+     * junto con: .card__toolTip:hover .card__toolTip__content { */
+    display: none;
+    
+  }
+
+  
+  .card__toolTip:hover .card__toolTip__content {
+    /* #1: Para que aparezca la card__toolTip, ya que previamente se ha hecho un "display:none" 
+     * para quitar el espacio en blanco (reservado al espacio que ocupa la cardTip) aunque esté invisible. 
+     * junto con: .card__toolTip__content */
+    display: block;
+  }
+  
 }
 
 
