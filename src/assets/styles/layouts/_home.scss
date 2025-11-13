@@ -49,7 +49,8 @@ header {
 
 /********** NAVIGATION **********/
 
-nav {
+nav,
+.submenu__content {
   background-color: variables.$gradient-color-2;
 
   // Menú hamburguesa, en tamaño desktop no se muestra
@@ -82,6 +83,14 @@ nav {
     background: variables.$gradient-color-1;
   }
 
+}
+
+.submenu {
+  display: none;
+}
+
+body.page-det1 .submenu-det1 {
+  display: block;
 }
 
 
@@ -136,12 +145,15 @@ main {
   object-fit: cover;
 }
 
-.card__content,
+.card__content {
+  padding: 0 1.2rem;
+  margin: 0;
+}
+
 .cardList__content,
 .card__footer {
   padding: 1.2rem;
   margin: .8rem 0 0;
- 
 }
 
 .card__footer {
@@ -459,6 +471,12 @@ td {
   border: 1px solid variables.$color2;
 }
 
+td {
+  /* Para que se puedan fragmentar las palabras largas, ya que en el texto de las atribuciones
+   * de Wikimedia para las fotografías, hacía que el texto se desbordase en movile. */
+  word-break: break-word;
+}
+
 caption {
   width: 100%;
     font-size: 1.5rem;
@@ -476,6 +494,7 @@ caption {
   td,
   tr {
     display: block;
+    
   }
 
   // Oculta la cabecera de la tabla pero sigue existiendo
@@ -485,6 +504,7 @@ caption {
     position: absolute;
     top: -9999px;
     left: -9999px;
+
   }
 
   tr {
@@ -495,7 +515,10 @@ caption {
   td {
     border: none;
     position: relative;
-    padding-left: 50%;
+   
+    
+    //padding-left: 50%;
+    padding-left: 40%;
   }
 
   td:before {
@@ -517,10 +540,19 @@ caption {
     width: 6rem;
     height: auto; 
     border-radius: .4rem;
+
+  
 }
 
 .table__icon {
   font-size: 3rem;
+}
+
+/* Para centrar en la tabla las miniaturas y los iconos, en desktop y tablet */
+.table__miniaturaImg,
+.table__icon {
+    display: block;
+    margin: 0 auto;
 }
 /*******************************************************************************************/
 
@@ -601,6 +633,14 @@ caption {
     align-items: center;
   }
 
+  /* Para centrar las tarjetas en pantalla */
+  .content_cards {
+    justify-content: center;
+    justify-items: center;
+  }
+
+ 
+
   /* Contenedor que en formato desktop y tablet tendrá una distribución del contenido (imágenes y texto)
    * de izquierda y derecha. 
    * En movile cambiará a una distribución en columna para mostrar el contenido verticalmente. */
@@ -630,7 +670,9 @@ caption {
     display: inline-block;
   }
     */
-  
+  .img__space {
+    padding-bottom: 1.5rem;
+  }
 
 
   .card__toolTip__content {
@@ -648,6 +690,13 @@ caption {
      * para quitar el espacio en blanco (reservado al espacio que ocupa la cardTip) aunque esté invisible. 
      * junto con: .card__toolTip__content */
     display: block;
+  }
+
+  /* Para mantener en la tabla los iconos y las miniaturas alineadas a la izquerda quitando el centrado*/
+  .table__miniaturaImg,
+  .table__icon {
+    padding: 0;
+    margin: 0;
   }
   
 }
