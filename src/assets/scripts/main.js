@@ -1,6 +1,21 @@
+// Código para mostrar los enlaces del menú hamburguesa
+// cuando tenemos un tamaño de pantalla tablet o mobile
 const toggleButton = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.menu ul');
 
 toggleButton.addEventListener('click', () => {
   navMenu.classList.toggle('active');
+});
+
+// Código para añadir la clase actual en el enlace de la
+// barra de navegación que estamos visitando, y que permite
+// aplicar un estilo CSS concreto (background-color)
+const current = window.location.pathname.split('/').pop();  
+const links = document.querySelectorAll('nav.menu a');
+
+links.forEach(link => {
+  const href = link.getAttribute('href').split('/').pop();
+  if (href === current) {
+    link.classList.add('actual');
+  }
 });

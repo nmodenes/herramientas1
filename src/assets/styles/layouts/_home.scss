@@ -75,9 +75,15 @@ nav {
     background-color: rgb(0 0 0 / 0.1);
   }
 
+  a.actual {
+    background-color: rgb(0 0 0 / 0.2);
+  }
+
+  /*
   .hvr-underline-from-center::before {
     background: variables.$gradient-color-1;
   }
+  */
 }
 
 .submenu {
@@ -207,18 +213,6 @@ footer {
 }
 
 /***** VIDEO ********/
-
-/*
-iframe {
-    width: 80%;
-    //max-width: 80%;
-    height: auto;
-    aspect-ratio: 16/9;
-    border: 0;
-    display: block;
-    margin: 0 auto;
-}
-*/
 .video {
   inline-size: 80%;
   //max-width: 80%;
@@ -238,12 +232,11 @@ iframe {
   }
 }
 
-/*******CARD TIPS*********/
+/******* CARD TIPS *********/
 .card__toolTip {
   position: relative;
   color: variables.$cardTip-color-word;
   cursor: help;
-  //font-weight: bold;
 }
 
 .card__toolTip__content {
@@ -285,13 +278,6 @@ iframe {
   justify-content: center;
   inline-size: 100%;
   block-size: auto;
-
-  /*
-  img {
-    max-width: 80%;
-    height: auto;
-  }
-    */
 }
 
 .content_cards,
@@ -337,7 +323,6 @@ iframe {
 }
 
 .hero-image-1 {
-
   block-size: 24rem;
   background-image: url(../images/hero_sensoji.jpg);
 }
@@ -352,22 +337,14 @@ iframe {
   inset-block-start: 50%;
   inset-inline-start: 50%;
   box-sizing: border-box;
-  //margin-right: 1rem;
-  //margin-bottom: 1.5rem;
+
   display: inline-block;
 
-  //padding: 2rem;
-  //height: 5rem;
   max-inline-size: 100%;
-  //width: 80%;
-  //color: white;
+
   font-size: 3rem;
   color: rgb(0, 0, 0);
-  //display: flex;
-  //align-items: center;
-  //justify-content: center;
   text-align: center;
-
   background-color: rgba(242, 242, 230, 0.7);
   transform: translate(-50%, -50%);
 }
@@ -376,33 +353,10 @@ iframe {
   text-decoration: underline;
   text-decoration-thickness: 0.25rem;
   text-decoration-color: black;
-  //text-shadow: 2px 2px 2px red;
 }
 
-/*
-.miniaturaImg {
-  width: 6rem;
-  height: auto; 
-  border-radius: .4rem;
-}
-*/
-/*
-.distribution {
-  display:flex;
-  justify-content: center;
-  
-
-}
-.distribution__right {
-  align-items: right;
-  padding: 0 0 0 1rem;
-}
-
-.distribution__left {
-  align-items: left;
-  padding: 0 1rem 0 0;
-}*/
-
+/******* CONTENEDOR DISTRIBUTION *******/
+/* Contenedor para posicionar texto/imágenes a derecha-izquierda en desktop/tablet; y en mobile aparecerá verticalmente */
 .distribution {
   display: flex;
   align-items: flex-start;
@@ -418,23 +372,16 @@ iframe {
   img {
     display: block;
     margin: 0 auto;
-    /*
-    max-width: 100%;
-    height: auto;
-    */
   }
 }
 
 .distribution__right {
   padding: 0 0 0 2rem;
- 
 }
 
 .distribution__right figure {
   text-align: center;
 }
-
-/*MIRAR*/
 
 .distribution__right figcaption a {
   display: inline-block;
@@ -442,13 +389,12 @@ iframe {
   color: #666;
   text-decoration: none;
 }
- 
 
 .distribution__right figcaption a:hover {
   text-decoration: underline;
 }
 
-/****TABLAS****/
+/********* TABLAS **********/
 table {
   inline-size: 100%;
   border-collapse: collapse;
@@ -462,8 +408,7 @@ td {
 
 td {
   /* Para que se puedan fragmentar las palabras largas, ya que en el texto de las atribuciones
-   * de Wikimedia para las fotografías, hacía que el texto se desbordase en movile. */
-  //word-break: break-word;
+   * de Wikimedia para las fotografías, hacía que el texto se desbordase en mobile. */
   overflow-wrap: break-word;
 }
 
@@ -472,7 +417,6 @@ caption {
   padding: 1rem 0;
   font-size: 1.5rem;
   background-color: variables.$color4;
-  //border: 1px solid variables.$color2;
 }
 
 @media screen and (max-width: 600px) {
@@ -501,8 +445,6 @@ caption {
 
   td {
     position: relative;
-
-    //padding-left: 50%;
     padding-inline-start: 40%;
     border: none;
   }
@@ -537,6 +479,7 @@ caption {
   display: block;
   margin: 0 auto;
 }
+
 /*******************************************************************************************/
 
 /********** RESPONSIVE **********/
@@ -597,13 +540,6 @@ caption {
     font-size: 1rem;
   }
 
-  /*
-  .card__image,
-  .card_-toolTip__content__img {
-    block-size: auto;
-  }
-    */
-
   .card__image {
     block-size: auto;
   }
@@ -623,7 +559,7 @@ caption {
 
   /* Contenedor que en formato desktop y tablet tendrá una distribución del contenido (imágenes y texto)
    * de izquierda y derecha. 
-   * En movile cambiará a una distribución en columna para mostrar el contenido verticalmente. */
+   * En mobile cambiará a una distribución en columna para mostrar el contenido verticalmente. */
   .distribution {
     flex-direction: column;
   }
@@ -632,30 +568,14 @@ caption {
   .distribution__left {
     inline-size: 100%;
     padding: 0;
+  }
 
-    /*
-    img {
-      display: block;
-      margin: 0 auto;
-    */
-  }
-  /*
-  .distribution__right {
-    padding: 0 0 0 2rem;
-  }
-    */
-  /*
-  .card__toolTip {
-    position: relative;
-    display: inline-block;
-  }
-    */
   .img__space {
     padding-block-end: 1.5rem;
   }
 
   .card__toolTip__content {
-    /* En movile el contenido de la card__toolTip aparecerá en el centro de la pantalla. Si no se producía desbordamiento. */
+    /* En mobile el contenido de la card__toolTip aparecerá en el centro de la pantalla. Si no se producía desbordamiento. */
     position: inherit;
     /* #1: Para quitar el espacio en blanco (reservado al espacio que ocupa la cardTip) aunque esté invisible. 
      * junto con: .card__toolTip:hover .card__toolTip__content { */
