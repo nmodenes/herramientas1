@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "stylelint-config-recommended-scss",
+    "stylelint-config-recess-order"
+  ],
+  "plugins": [
+    "stylelint-use-logical"
+  ],
+  "rules": {
+    "color-hex-length": "short",
+    "length-zero-no-unit": true,
+    "csstools/use-logical": "always"
+  }
+}
