@@ -9,9 +9,6 @@ body {
   line-height: 1.6;
   @include variables.text-color();
   background-color: variables.$main-background-color;
-
-  /*OVERFLOW-X MIRAR*/
-  //overflow-x: hidden;
 }
 
 /********** HEADER **********/
@@ -42,10 +39,6 @@ header {
 
 /********** NAVIGATION **********/
 
-/*
-nav,
-.submenu__content {
-*/
 nav {
   background-color: variables.$gradient-color-2;
 
@@ -78,12 +71,6 @@ nav {
   a.actual {
     background-color: rgb(0 0 0 / 0.2);
   }
-
-  /*
-  .hvr-underline-from-center::before {
-    background: variables.$gradient-color-1;
-  }
-  */
 }
 
 .submenu {
@@ -95,23 +82,10 @@ body.page-det1 .submenu-det1 {
 }
 
 /********** MAIN **********/
-/*
-main {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(variables.$min-column-size, 1fr));
-  gap: 2rem;
-  max-inline-size: variables.$max-main-width;
-  padding: 2rem;
-  margin: auto;
-}
-*/
 
 main {
-  //padding: 2rem;
   padding: 2rem 6rem;
   margin: auto;
-  //width: 80%;
-  //max-inline-size: variables.$max-main-width;
 }
 
 /********** TARJETAS **********/
@@ -197,7 +171,6 @@ footer {
   @include variables.text-color(variables.$footer-text-color);
   text-align: center;
 }
-/*******************************************************************************************/
 
 .icon__size {
   font-size: 2rem;
@@ -215,7 +188,6 @@ footer {
 /***** VIDEO ********/
 .video {
   inline-size: 80%;
-  //max-width: 80%;
   margin: 0 auto;
 
   .video__iframe {
@@ -300,16 +272,8 @@ footer {
   /* Establece el contenedor como relativo para que los elementos 
      dentro puedan posicionarse de forma absoluta */
   position: relative;
-
   display: inline-block;
-
   inline-size: 100%;
-  //width: 100%;
-  //height: 560px;
-
-  //height: 24rem;
-
-  //background-image: url(../images/hero_sensoji.jpg);
   object-fit: cover;
   /* La imagen no se repite dentro del elemento contenedor */
   background-repeat: no-repeat;
@@ -319,7 +283,6 @@ footer {
      hasta el tamaño mínimo necesario para cubrir todo el
      elemento contenedor */
   background-size: cover;
-  //max-width: 100%;
 }
 
 .hero-image-1 {
@@ -412,6 +375,10 @@ td {
   overflow-wrap: break-word;
 }
 
+.text__bold {
+  font-weight: bold;
+}
+
 caption {
   inline-size: 100%;
   padding: 1rem 0;
@@ -480,7 +447,7 @@ caption {
   margin: 0 auto;
 }
 
-/*******************************************************************************************/
+/***********************************************************/
 
 /********** RESPONSIVE **********/
 

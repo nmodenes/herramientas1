@@ -11,7 +11,7 @@
     "clean": "rimraf dist .parcel-cache"
   },
   "browserslist": [
-    "since 2015"
+    "since 2015, ie >= 6"
   ],
   "devDependencies": {
     "@parcel/transformer-sass": "^2.16.1",
