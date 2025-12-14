@@ -204,7 +204,7 @@ footer {
   }
 }
 
-/******* CARD TIPS *********/
+/******* CARD TOOLTIPS *********/
 .card__toolTip {
   position: relative;
   color: variables.$cardTip-color-word;
@@ -236,7 +236,7 @@ footer {
   visibility: visible;
   opacity: 1;
 }
-/****fin card tips******/
+/****fin card tooltips******/
 
 .img-fluid {
   max-inline-size: 100%;
@@ -267,35 +267,102 @@ footer {
 }
 
 /******* HERO IMAGE ***********/
+/*
 .hero-image-1,
 .hero-image-2 {
-  /* Establece el contenedor como relativo para que los elementos 
-     dentro puedan posicionarse de forma absoluta */
+  //Establece el contenedor como relativo para que los elementos 
+  //  dentro puedan posicionarse de forma absoluta 
   position: relative;
   display: inline-block;
   inline-size: 100%;
   object-fit: cover;
-  /* La imagen no se repite dentro del elemento contenedor */
+  // La imagen no se repite dentro del elemento contenedor 
   background-repeat: no-repeat;
-  /* Posiciona la imagen en el centro del elemento contenedor */
+  // Posiciona la imagen en el centro del elemento contenedor 
   background-position: center;
-  /* Escala la imagen, manteniendo la relación de aspecto, 
-     hasta el tamaño mínimo necesario para cubrir todo el
-     elemento contenedor */
+  // Escala la imagen, manteniendo la relación de aspecto, 
+    // hasta el tamaño mínimo necesario para cubrir todo el
+   //  elemento contenedor 
   background-size: cover;
-}
+}*/
 
+/*
 .hero-image-1 {
   block-size: 24rem;
-  background-image: url(../images/hero_sensoji.jpg);
+  //background-image: url(../images/hero_sensoji.jpg);
+  position: relative;
+  inline-size: 100%;
 }
+  */
+
+  /* ///////////////////////////////////// 14
+.hero-image-1 picture,
+.hero-image-1 img {
+  inline-size: 100%;
+  block-size: 70%; //100%
+}
+
+.hero-image-1 img {
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+  */
+
+/* Nota: det2 será hero__container-2 y hero__image-2 --> AÑADIR LAS CLASES A DET2*/
+
+.hero__container-1,
+.hero__container-2 {
+  position: relative;
+  width: 100%;
+  //height: 26rem;
+  overflow: hidden;
+}
+
+/* Nota: Para distintas medias se puede poner auto o rem para que quede mejor la imagen*/
+.hero__container-1 {
+  //height: 26rem;
+  height: 44rem;
+  //height: auto;
+}
+
+/*
+.hero__container-2 {
+  height: 30rem;
+}
+  */
+
+.hero__container-1 picture,
+.hero__container-2 picture,
+.hero__image-1,
+.hero__image-2 {
+  width: 100%;
+  height: 100%;
+}
+
+.hero__image-1,
+.hero__image-2 {
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/*
+.hero {
+  width: 100%;
+  height: 26rem;
+  object-fit: cover;
+}
+  */
+
+
 
 .hero-image-2 {
   block-size: 30rem;
   background-image: url(../images/hero_shibuya_crossing.jpg);
 }
 
-.hero-title {
+.hero__title {
   position: absolute;
   inset-block-start: 50%;
   inset-inline-start: 50%;
@@ -448,7 +515,120 @@ caption {
 }
 
 /***********************************************************/
+/********** ANIMATIONS **********/
+/* Nota: Si al final hay mucho código de animaciones no estaría mal incluir otro archivo .scss para estas*/
 
+/* Animación para que en el título de la página de portada aparezcan
+   las letras animadas de derecha a izquierda, hasta su posición centrada
+   en pantalla, con un delay */
+.title__animation {
+  font-size: 3rem;
+  display: flex; 
+  justify-content: center;
+
+  position: relative;
+  padding-bottom: .5rem;
+
+  margin-top: 0;
+}
+
+.title__animation span {
+  display: inline-block;
+  //transform: translateX(2rem);
+  transform: translateX(100vw);
+  animation: animated-title .5s ease-out forwards;
+  //opacity: 0;
+}
+
+/* Para este código se ha creado en assets/scripts/main.js una función de JavaScript
+   para cubrir títulos con mucho texto o letras.*/
+/*
+.title__animation span:nth-child(1) { animation-delay: 1s; }
+.title__animation span:nth-child(2) { animation-delay: 2s; }
+.title__animation span:nth-child(3) { animation-delay: 3s; }
+.title__animation span:nth-child(4) { animation-delay: 4s; }
+.title__animation span:nth-child(5) { animation-delay: 5s; }
+//etc...
+*/
+
+@keyframes animated-title {
+  to {
+     transform: translateX(0);
+     //opacity: 1;
+  }
+ 
+
+}
+
+/* Animación para que en el título de la página de portada aparezcan
+   unas líneas animadas de izquierda a derecha, encuadrando el título */
+.title__animation::after,
+.title__animation::before {
+  content: "";
+  position: absolute;
+
+  width: 100%;
+  height: .5rem;
+  //background: linear-gradient(to right, rgb(129, 22, 22, .8), rgb(129, 22, 22, .2), rgb(129, 22, 22, .8));
+  //top: 0;
+  //bottom: 0;
+
+  //transform: translateX(100vw);
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: animated-title-underline 2s ease-out forwards;
+}
+
+.title__animation::after {
+  bottom: 0;
+  animation-delay: 1.3s;
+}
+
+.title__animation::before {
+  top: 0;
+  
+}
+
+/*Muy bonito, Nota: se podría añadir también para dividir apartados en det1 y det2, o para subrayar los títulos de las secciones 
+  Nota: se podría hacer la función o el mixin para linear-gradient y así controlar los colores base de la página web*/
+@keyframes animated-title-underline {
+  0% {
+    transform: scaleX(0);
+    background: linear-gradient(to right, rgb(129, 22, 22, .6), rgb(129, 22, 22, .3), rgb(129, 22, 22, .6));
+  }
+  100% {
+    transform: scaleX(1);
+    background: linear-gradient(to right, rgb(129, 22, 22, .8), rgb(129, 22, 22, .4), rgb(129, 22, 22, .8));
+  }
+}
+
+/*
+.title__underline__animation {
+  display: flex;
+  justify-content: center;
+}
+
+.title__underline__animation span {
+  width: 2rem;
+  height: 2rem;
+  background: red;
+  transform: translateX(-100vw);
+  animation: animated-title-underline .5s ease-out forwards;
+}
+
+@keyframes animated-title-underline {
+  to {
+     transform: translateX(0);
+     //opacity: 1;
+  }
+ 
+
+}
+  */
+
+
+
+/***********************************************************/
 /********** RESPONSIVE **********/
 
 @media (max-width: 1300px) {
@@ -544,14 +724,14 @@ caption {
   .card__toolTip__content {
     /* En mobile el contenido de la card__toolTip aparecerá en el centro de la pantalla. Si no se producía desbordamiento. */
     position: inherit;
-    /* #1: Para quitar el espacio en blanco (reservado al espacio que ocupa la cardTip) aunque esté invisible. 
+    /* #1: Para quitar el espacio en blanco (reservado al espacio que ocupa la cardToolTip) aunque esté invisible. 
      * junto con: .card__toolTip:hover .card__toolTip__content { */
     display: none;
   }
 
   .card__toolTip:hover .card__toolTip__content {
     /* #1: Para que aparezca la card__toolTip, ya que previamente se ha hecho un "display:none" 
-     * para quitar el espacio en blanco (reservado al espacio que ocupa la cardTip) aunque esté invisible. 
+     * para quitar el espacio en blanco (reservado al espacio que ocupa la cardToolTip) aunque esté invisible. 
      * junto con: .card__toolTip__content */
     display: block;
   }

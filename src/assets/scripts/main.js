@@ -19,3 +19,19 @@ links.forEach(link => {
     link.classList.add('actual');
   }
 });
+
+// Código para crear un bucle con un delay para las diferentes letras animadas del título de la portada
+// "Tokio y sus barrios especiales"
+// ya que si hay muchas letras en el título había que crear muchos 
+// ".title__animation span:nth-child(n) { animation-delay: 1s; }" en el css
+document.querySelectorAll('.title__animation span')
+  .forEach((span, index) =>{
+    span.style.animationDelay = `${index * 0.2}s`;
+});
+
+/*
+document.querySelectorAll('.title__underline__animation span')
+  .forEach((span, index) =>{
+    span.style.animationDelay = `${index * 0.2}s`;
+});
+*/

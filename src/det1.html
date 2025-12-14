@@ -20,8 +20,19 @@
   <include src="./views/header.html"></include>
   <include src="./views/navigation.html"></include>
 
+  <!-- Dirección de Arte -->
+   <!--
   <div class="hero-image-1">
     <h1 class="hero-title">Barrio de Taitō</h1>
+  </div>
+   -->
+  <div class="hero__container-1">
+    <picture>
+      <source media="(max-width: 768px)" srcset="./assets/images/hero_sensoji-768.jpg" />
+      <source media="(min-width: 769px)" srcset="./assets/images/hero_sensoji.jpg" />
+      <img class="hero__image-1" src="./assets/images/hero_sensoji.jpg" alt="Templo Senso-ji en Tokyo" />
+    </picture>
+    <h1 class="hero__title">Barrio de Taitō</h1>
   </div>
 
   <main>
