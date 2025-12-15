@@ -519,35 +519,40 @@ caption {
 /* Nota: Si al final hay mucho código de animaciones no estaría mal incluir otro archivo .scss para estas*/
 
 /* Animación para que en el título de la página de portada aparezcan
-   las letras animadas de derecha a izquierda, hasta su posición centrada
+   las letras/palabras animadas de derecha a izquierda, hasta su posición centrada
    en pantalla, con un delay */
-.title__animation {
-  font-size: 3rem;
-  display: flex; 
-  justify-content: center;
+.animation__title {
+  //font-size: 3rem;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  //display: flex; 
+  //justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
 
-  position: relative;
-  padding-bottom: .5rem;
+  position: relative; //mirar 14
+  padding-bottom: .5rem; //mirar 14
 
   margin-top: 0;
+  
 }
 
-.title__animation span {
+.animation__title span {
   display: inline-block;
   //transform: translateX(2rem);
   transform: translateX(100vw);
+  //transform: translateX(50%);
   animation: animated-title .5s ease-out forwards;
   //opacity: 0;
 }
 
 /* Para este código se ha creado en assets/scripts/main.js una función de JavaScript
-   para cubrir títulos con mucho texto o letras.*/
+   para cubrir títulos con muchas letras o palabras (según cómo se quiera animar).*/
 /*
-.title__animation span:nth-child(1) { animation-delay: 1s; }
-.title__animation span:nth-child(2) { animation-delay: 2s; }
-.title__animation span:nth-child(3) { animation-delay: 3s; }
-.title__animation span:nth-child(4) { animation-delay: 4s; }
-.title__animation span:nth-child(5) { animation-delay: 5s; }
+.animation__title span:nth-child(1) { animation-delay: 1s; }
+.animation__title span:nth-child(2) { animation-delay: 2s; }
+.animation__title span:nth-child(3) { animation-delay: 3s; }
+.animation__title span:nth-child(4) { animation-delay: 4s; }
+.animation__title span:nth-child(5) { animation-delay: 5s; }
 //etc...
 */
 
@@ -562,45 +567,183 @@ caption {
 
 /* Animación para que en el título de la página de portada aparezcan
    unas líneas animadas de izquierda a derecha, encuadrando el título */
-.title__animation::after,
-.title__animation::before {
+.animation__line {
+  position: relative;
+  display: inline-block;
+
+  //padding: 2rem 0;
+  padding: clamp(.1rem, 5vw, .8rem) 0;
+}
+
+
+
+//.animation__title::after,
+//.animation__title::before {
+.animation__line::after,
+.animation__line::before {
   content: "";
   position: absolute;
+ 
 
-  width: 100%;
+  //width: 100%;
   height: .5rem;
+
+  right: 0;
+  left: 0;
+
   //background: linear-gradient(to right, rgb(129, 22, 22, .8), rgb(129, 22, 22, .2), rgb(129, 22, 22, .8));
   //top: 0;
   //bottom: 0;
 
   //transform: translateX(100vw);
   transform-origin: left;
-  transform: scaleX(0);
-  animation: animated-title-underline 2s ease-out forwards;
+  //transform: scaleX(0);
+  animation: animated-line 2s ease-out forwards;
 }
 
-.title__animation::after {
+//.animation__title::after {
+.animation__line::after {
   bottom: 0;
+  //bottom: -.5rem;
+  //left: 0;
+ 
   animation-delay: 1.3s;
 }
 
-.title__animation::before {
+//.animation__title::before {
+.animation__line::before {
   top: 0;
+  //left: 0;
+  
+  //transform-origin: left;
+  //bottom: -.5rem;
   
 }
 
 /*Muy bonito, Nota: se podría añadir también para dividir apartados en det1 y det2, o para subrayar los títulos de las secciones 
   Nota: se podría hacer la función o el mixin para linear-gradient y así controlar los colores base de la página web*/
-@keyframes animated-title-underline {
+@keyframes animated-line {
   0% {
-    transform: scaleX(0);
+    //transform: scaleX(0);
+    //transform: translateX(-100vw) scaleX(1);
+    transform: translateX(-100vw);
     background: linear-gradient(to right, rgb(129, 22, 22, .6), rgb(129, 22, 22, .3), rgb(129, 22, 22, .6));
   }
   100% {
-    transform: scaleX(1);
+    //transform: scaleX(1);
+    //transform: translateX(0) scaleX(1);
+    transform: translateX(0);
     background: linear-gradient(to right, rgb(129, 22, 22, .8), rgb(129, 22, 22, .4), rgb(129, 22, 22, .8));
   }
 }
+
+.animation__flower {
+  position: relative;
+  //width: 50%;
+  
+}
+
+.flower {
+  position: absolute;
+  top: -50px;
+  left: 100%;
+  animation: animated-flower 5s linear infinite;
+
+  //max-width: 30px;
+  max-width: 40px;
+  height: auto;
+}
+
+@include variables.flower-positiion(1, 0%, 0s);
+@include variables.flower-positiion(2, 15%, 1s);
+@include variables.flower-positiion(3, 30%, 2s);
+@include variables.flower-positiion(4, 45%, 1.5s);
+@include variables.flower-positiion(5, 60%, 0.5s);
+@include variables.flower-positiion(6, 75%, 1s);
+@include variables.flower-positiion(7, 90%, 0.5s);
+
+/*
+.flower:nth-child(1) {
+  left: 0%;
+  animation-duration: 6s;
+  animation-delay: 0s;
+}
+
+.flower:nth-child(2) {
+  left: 15%;
+  animation-duration: 6s;
+  animation-delay: 1s;
+}
+
+.flower:nth-child(3) {
+  left: 30%;
+  animation-duration: 6s;
+  animation-delay: 2s;
+}
+
+.flower:nth-child(4) {
+  left: 45%;
+  animation-duration: 6s;
+  animation-delay: 1.5s;
+}
+
+.flower:nth-child(5) {
+  left: 60%;
+  animation-duration: 6s;
+  animation-delay: 0.5s;
+}
+
+.flower:nth-child(6) {
+  left: 75%;
+  animation-duration: 6s;
+  animation-delay: 1s;
+}
+
+.flower:nth-child(7) {
+  left: 90%;
+  animation-duration: 6s;
+  animation-delay: 0.5s;
+}
+  */
+/*
+.flower:nth-child(8) {
+  left: 80%;
+  animation-duration: 6s;
+  animation-delay: 0s;
+}
+
+.flower:nth-child(9) {
+  left: 90%;
+  animation-duration: 6s;
+  animation-delay: 0s;
+}
+
+.flower:nth-child(10) {
+  left: 100%;
+  animation-duration: 6s;
+  animation-delay: 0s;
+}
+
+.flower:nth-child(11) {
+  left: 0%;
+  animation-duration: 6s;
+  animation-delay: 0s;
+}
+  */
+
+@keyframes animated-flower {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    //transform: translateX(100px) translateY(400px) rotate(360deg);
+    transform: translateX(60px) translateY(200px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
 
 /*
 .title__underline__animation {

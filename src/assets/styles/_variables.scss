@@ -40,3 +40,14 @@ $max-main-width: 1200px;
   background-blend-mode: multiply;
 }
 
+// Mixin para añadir una posición, un delay, y una duración, para la animación de las flores de sakura
+@mixin flower-positiion($nth-child, $left, $delay, $duration: 6s) {
+  .flower:nth-child(#{$nth-child}) {
+    left: $left;
+    animation-duration: $duration;
+    animation-delay: $delay;
+  }
+}
+
+
+
