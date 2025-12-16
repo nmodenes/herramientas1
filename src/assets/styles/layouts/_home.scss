@@ -637,9 +637,12 @@ caption {
   }
 }
 
+/* Animación para que la imagen de la flor de sakura en .SVG, haga un efecto
+   de caída y rotación sobre el título de la página. */
 .animation__flower {
   position: relative;
   //width: 50%;
+  margin-top: 1rem;
   
 }
 
@@ -654,6 +657,15 @@ caption {
   height: auto;
 }
 
+@include variables.flower-position(1, 0%, 2s);
+@include variables.flower-position(2, 15%, 3s);
+@include variables.flower-position(3, 30%, 4s);
+@include variables.flower-position(4, 45%, 3.5s);
+@include variables.flower-position(5, 60%, 2.5s);
+@include variables.flower-position(6, 75%, 3.7s);
+@include variables.flower-position(7, 90%, 2.5s);
+
+/*
 @include variables.flower-positiion(1, 0%, 0s);
 @include variables.flower-positiion(2, 15%, 1s);
 @include variables.flower-positiion(3, 30%, 2s);
@@ -661,7 +673,7 @@ caption {
 @include variables.flower-positiion(5, 60%, 0.5s);
 @include variables.flower-positiion(6, 75%, 1s);
 @include variables.flower-positiion(7, 90%, 0.5s);
-
+*/
 /*
 .flower:nth-child(1) {
   left: 0%;
@@ -768,6 +780,152 @@ caption {
 
 }
   */
+
+  /*
+.carrete__container {
+  display: flex;
+  align-items: center;
+}
+
+.carrete__foto {
+  display: flex;
+  transition: transform .5s ease;
+
+  list-style: none;
+}
+
+.carrete__miniaturaImg {
+  inline-size: 17rem;
+  block-size: auto;
+  border-radius: 0.4rem;
+}
+  */
+  
+.image__container {
+  position: relative;
+  //max-width: 800px;
+  //height: 500px;
+  //width: 100%;
+  //display: inline-block;
+
+  width: 100%;
+  aspect-ratio: 1;
+}
+//.image__container img {
+.animated__photo {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity .5s ease-in-out;
+  //z-index: 1;
+}
+
+.image__top {
+  //opacity: 1;
+  opacity: 0;
+  //animation: change-photo 6s infinite alternate;
+  
+  //z-index: 1;
+  z-index: 2;
+}
+
+.image__bottom {
+  //opacity: 0;
+  opacity: 1;
+  //animation: change-photo 10s infinite alternate; 
+  //animation-delay: 5s;
+  //z-index: 2;
+  z-index: 1;
+}
+
+
+
+.clip-path__monte-fuji {
+  
+
+  /*
+  clip-path: polygon(
+    50% 5%,
+    85% 90%,
+    15% 90%
+  );
+  */
+  /*
+  50% 10%,
+    85% 95%,
+    15% 95%
+
+
+
+    30% 15%,
+    55% 10%,
+    70% 15%,
+    90% 50%,
+    10% 50%
+
+    30% 15%,   
+    55% 10%,   
+    70% 15%,   
+    90% 50%,  
+    10% 50%,   
+    15% 85%,   
+    25% 85% 
+  
+  */
+  clip-path: polygon(
+    30% 15%,   
+    55% 10%,   
+    70% 15%,   
+    90% 45%,  
+    30% 45%,   
+    40% 100%,
+    15% 97%,   
+    15% 95%  
+     
+    
+  );
+
+  //animation: change-photo 5s infinite alternate ease-in-out;
+  //opacity: 0;
+  
+  //z-index: 2;
+}
+
+.clip-path__monte-fuji__circle {
+  clip-path: circle(50%);
+  top: 10%;
+  left: 10%;
+  width: 2rem;
+  height: 2rem;
+}
+
+/*
+@keyframes change-photo {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+  */
+
+.image__container:hover .image__top,
+.image__container:focus .image__top {
+  opacity: 1;
+}
+
+.image__container:hover .image__bottom,
+.image__container:focus .image__bottom {
+  opacity: 0;
+}
 
 
 
