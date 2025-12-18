@@ -155,6 +155,14 @@ main {
   padding: 1rem 0;
 }
 
+.text__style {
+  @include variables.text-color(variables.$card-title-color);
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 1.5px;
+}
+
 /********** FOOTER **********/
 
 footer {
@@ -593,6 +601,9 @@ caption {
 
   width: 100%;
   aspect-ratio: 1;
+
+  border: 3px dashed #000;
+  box-sizing: border-box;
 }
 //.image__container img {
 .animated__photo {
@@ -737,14 +748,45 @@ caption {
     60% 30%,
     70% 30%
     */
-
-.distribution__center {
-  margin: 0;
-  min-height: 100vh;
+.distribution__center__container {
   display: flex;
+  //text-align: center;
   justify-content: center;
   align-items: center;
 }
+.distribution__center {
+  //margin: 0;
+  //min-height: 100vh;
+ 
+  //display: flex;
+  //display: inline-block;
+  //justify-content: center;
+  //align-items: center;
+
+  //text-align: center;
+
+  
+  //margin: 0 20rem;
+  //margin: 2rem 20rem;
+  //margin: 2rem auto;
+  //margin: 2rem clamp(2rem, 20vw, 200rem);
+  //margin: 4rem clamp(2em, 20vw, 632px);
+  margin: 4rem auto;
+  padding: 4rem .5rem;
+  //margin: 2rem clamp(0vh, 5vw, 50vh);
+  //margin-left: clamp(1rem, 5vw, 5rem);
+  //margin-right: clamp(1rem, 5vw, 5rem);
+  background-color: #fff;
+  //box-shadow: 0 12px 24px rgb(0 0 0 / 0.2);
+  box-shadow: 0 0 0 3px rgb(160, 16, 16),
+              0 0 0 8px rgb(134, 132, 132),
+              0 0 0 13px rgb(4, 143, 4);
+
+}
+/*
+.distribution__inline {
+  display: inline-block;
+}*/
 
 .tree__container {
   
@@ -756,8 +798,17 @@ caption {
   */
   overflow: visible;
   
-  width: min(80vw, 300px);
+  //width: min(80vw, 300px);
+  //width: min(40vw, 60vw);
+  width: clamp(10rem, 30vw, 30rem);
+  //max-width: 300px; 
   aspect-ratio: 3 / 4;
+  //margin: 0 4rem;
+  margin: 0 auto;
+
+  
+
+  
 
 }
 
@@ -867,6 +918,37 @@ caption {
 
 
 /***********************************************************/
+//***********************************18
+.text__style-1,
+.text__style-2 {
+  @include variables.text-color(variables.$card-link-color);
+  //font-size: 2rem;
+  
+  
+  
+}
+
+.text__style-1 {
+  font-size: clamp(.7rem, 5vw, 1.2rem);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 1.5px;
+}
+
+.text__style-2 {
+  font-size: clamp(1rem, 5vw, 2rem);
+  text-align: center;
+}
+
+.text__style-3 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900; 
+}
+
+
+
+
 /********** RESPONSIVE **********/
 
 @media (max-width: 1300px) {
