@@ -159,8 +159,8 @@ main {
   @include variables.text-color(variables.$card-title-color);
   font-size: clamp(1rem, 5vw, 1.5rem);
   text-decoration: underline;
-  text-decoration-style: dashed;
   text-decoration-thickness: 1.5px;
+  text-decoration-style: dashed;
 }
 
 /********** FOOTER **********/
@@ -279,15 +279,7 @@ footer {
 .hero__container-1,
 .hero__container-2 {
   position: relative;
-  width: 100%;
-  //block-size: 30rem;
-}
-
-.hero__container-1 {
-  block-size: 24rem;
-}
-
-.hero__container-3 {
+  inline-size: 100%;
   block-size: 30rem;
 }
 
@@ -295,17 +287,17 @@ footer {
 .hero__container-2 picture,
 .hero__image-1,
 .hero__image-2 {
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 .hero__image-1,
 .hero__image-2 {
+  display: block;
   object-fit: cover;
   object-position: center;
-  display: block;
 }
-  
+
 .hero__title {
   position: absolute;
   inset-block-start: 50%;
@@ -322,14 +314,12 @@ footer {
   background-color: rgba(242, 242, 230, 0.7);
   transform: translate(-50%, -50%);
 }
-  
 
 .text__underline {
   text-decoration: underline;
   text-decoration-thickness: 0.25rem;
   text-decoration-color: black;
 }
-
 
 /******* CONTENEDOR DISTRIBUTION *******/
 /* Contenedor para posicionar texto/imágenes a derecha-izquierda en desktop/tablet; 
@@ -440,14 +430,14 @@ caption {
 
 .more::after {
   display: inline-block;
-  margin-inline-start: .5rem;
+  margin-inline-start: 0.5rem;
   content: "\2192";
 }
 
 .table__miniaturaImg {
   inline-size: 6rem;
   block-size: auto;
-  border-radius: .4rem;
+  border-radius: 0.4rem;
 }
 
 .table__icon {
@@ -461,31 +451,25 @@ caption {
   margin: 0 auto;
 }
 
-/*********************************/
-/********** ANIMACIONES **********/
-/*********************************/
+/**********************************************/
+/********** ANIMACIONES y CLIP-PATHS **********/
+/**********************************************/
 
 /*** ANIMACIÓN LETRAS/PALABRAS TÍTULO ***/
-/* Animación para que en el título de la página de portada/categoria/links aparezcan
+/* Animación para que en el título de las páginas de portada/categoria/links aparezcan
    las letras/palabras animadas de derecha a izquierda, hasta su posición centrada
    en pantalla, con un delay */
 .animation__title {
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  
-  text-align: center;
-  flex-wrap: wrap;
-
   position: relative;
-  padding-bottom: .5rem; 
-
-  margin-top: 0;
-  
+  flex-wrap: wrap;
+  font-size: clamp(1.1rem, 10vw, 2.1rem);
+  text-align: center;
 }
 
 .animation__title span {
   display: inline-block;
   transform: translateX(100vw);
-  animation: animated-title .5s ease-out forwards; 
+  animation: animated-title 0.5s ease-out forwards;
 }
 
 /* Para este código se ha creado en assets/scripts/main.js una función de JavaScript
@@ -501,7 +485,7 @@ caption {
 
 @keyframes animated-title {
   to {
-     transform: translateX(0);
+    transform: translateX(0);
   }
 }
 
@@ -511,98 +495,77 @@ caption {
 .animation__line {
   position: relative;
   display: inline-block;
-  padding: clamp(.1rem, 5vw, .8rem) 0;
-  
+  padding: clamp(0.1rem, 5vw, 0.8rem) 0;
+  margin-top: .5rem;
 }
 
 .animation__line::after,
 .animation__line::before {
-  content: "";
   position: absolute;
-  height: .5rem;
-  right: 0;
-  left: 0;
+  inset-inline: 0;
+  block-size: 0.5rem;
+  content: "";
   transform-origin: left;
-  
+
   animation: animated-line 2s ease-out forwards;
 }
 
 .animation__line::after {
-  bottom: 0;
+  inset-block-end: 0;
   animation-delay: 1.3s;
 }
 
 .animation__line::before {
-  top: 0; 
+  inset-block-start: 0;
 }
 
 @keyframes animated-line {
   0% {
+    background: linear-gradient(
+      to right,
+      rgb(129, 22, 22, 0.6),
+      rgb(129, 22, 22, 0.3),
+      rgb(129, 22, 22, 0.6)
+    );
     transform: translateX(-100vw);
-    background: linear-gradient(to right, rgb(129, 22, 22, .6), rgb(129, 22, 22, .3), rgb(129, 22, 22, .6));
   }
   100% {
+    background: linear-gradient(
+      to right,
+      rgb(129, 22, 22, 0.8),
+      rgb(129, 22, 22, 0.4),
+      rgb(129, 22, 22, 0.8)
+    );
     transform: translateX(0);
-    background: linear-gradient(to right, rgb(129, 22, 22, .8), rgb(129, 22, 22, .4), rgb(129, 22, 22, .8));
   }
 }
 
 /*** ANIMACIÓN FLORES DE SAKURA ***/
 /* Animación para que la imagen de la flor de sakura en .SVG, haga un efecto
    de caída y rotación sobre el título de la página. */
-   /*
-.flower__wrapper {
-  position: relative;
-  width: 100%;
-  //height: 300px; 
-  //overflow-x: hidden;
-  //overflow-y: visible;
-  //margin-top: 2rem;
-  //clip-path: inset(0 0 0 0);
-}
-  */
 
 /* Se ha hecho un "overflow-x:hidden" porque la animación de la caída de las flores 
    de sakura producía desbordamiento en mobile.
-   Previamente se había hecho un contenedor padre para que no se produjese desbordamiento
-   fuera del contenedor, pero aparecía una barra de scroll marcando el contenedor.*/
-html, 
-body {
+   Se ha hecho sobre el main ya que previamente se había hecho un contenedor padre (con un <div>) para que 
+   no se produjese el desbordamiento fuera del contenedor, pero aparecía una barra de scroll marcando el contenedor.*/
+.flower__container {
   overflow-x: hidden;
+  margin-top: .25rem;
 }
-
-/*
-.main__style {
-  padding-top:0.05rem;
-}
-  */
-  
 
 .animation__flower {
   position: relative;
-  margin-top: 1.5rem;
-  //overflow: hidden;
-  
-  //height: 3rem;
-  //pointer-events: none;
-  
+  margin-block-start: 1.5rem;
 }
 
 .flower {
   position: absolute;
-  //top: -60px;
-  //top: clamp(-35px, 5vw, -60px);
-  top: clamp(-45px, 5vw, -85px);
-  //left: 100%;
-  //top: -30px;
-  //top: 0;
-  left:0;
-  
-  animation: animated-flower 5s linear infinite;
+  inset-block-start: clamp(-45px, 5vw, -85px);
+  inset-inline-start: 0;
+  max-inline-size: clamp(40px, 5vw, 50px);
+  block-size: auto;
 
-  max-width: 40px;
-  height: auto;
-  
+  animation: animated-flower 5s linear infinite;
 }
 
 @include variables.flower-position(1, 0%, 2s);
@@ -613,73 +576,59 @@ body {
 @include variables.flower-position(6, 75%, 3.7s);
 @include variables.flower-position(7, 90%, 2.5s);
 
-
 @keyframes animated-flower {
-  
   0% {
-    transform: translateX(0) translateY(0) rotate(0deg);
-    //transform: translateX(0) translateY(-60px) rotate(0deg);
     opacity: 1;
+    transform: translateX(0) translateY(0) rotate(0deg);
   }
   100% {
-    //transform: translateX(100px) translateY(400px) rotate(360deg);
-    //transform: translateX(60px) translateY(200px) rotate(360deg);
-    //transform: translateX(3.75rem) translateY(12rem) rotate(360deg);
-    transform: translateX(3.75rem) translateY(clamp(10rem, 12vw, 12rem)) rotate(360deg);
-    //transform: translateX(60px) translateY(clamp(180px, 10vw, 400px)) rotate(360deg);
     opacity: 0;
+    transform: translateX(3.75rem) translateY(clamp(10rem, 12vw, 12rem))
+      rotate(360deg);
   }
-    
-    /*
-  100% {
-    transform: translateX(20px) translateY(200px) rotate(360deg);
-  }
-    */
 }
 
-
 /****** CLIP-PATH ******/
-/*Clip-path sobre la imagen de portada del monte Fuji. Haciendo hoover sobre la imagen aparecerá la original.*/
+/* Clip-path sobre la imagen en la página de portada del monte Fuji. 
+   Haciendo hoover sobre la imagen aparecerá la original.*/
 .image__container {
   position: relative;
-  
-  width: 100%;
+  box-sizing: border-box;
+
+  inline-size: 100%;
   aspect-ratio: 1;
 
   border: 3px dashed #000;
-  box-sizing: border-box;
 }
 
 .animated__photo {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: 100%;
   object-fit: cover;
-  transition: opacity .5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .image__top {
   opacity: 0;
-  z-index: 2;
 }
 
 .image__bottom {
   opacity: 1;
-  z-index: 1;
 }
 
 .clip-path__monte-fuji {
   clip-path: polygon(
-    30% 15%,   
-    55% 10%,   
-    70% 15%,   
-    90% 45%,  
-    30% 45%,   
+    30% 15%,
+    55% 10%,
+    70% 15%,
+    90% 45%,
+    30% 45%,
     40% 100%,
-    15% 97%,   
-    15% 95%    
+    15% 97%,
+    15% 95%
   );
 }
 
@@ -693,42 +642,40 @@ body {
   opacity: 0;
 }
 
-
 /****** CLIP-PATH y ANIMACIONES de las LUCES y la FLOR de sakura ******/
-/* Clip-path del arbol de navidad y las luces. Animaciones en la flor de sakura y las luces.*/
+/* Clip-path del árbol de navidad y las luces. Animaciones en la flor de sakura y las luces.*/
 .distribution__center__container {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   margin: 2rem auto;
 }
 .distribution__center {
-  padding: 4rem .5rem 1rem .5rem;
+  padding: 4rem 0.5rem 1rem 0.5rem;
   background-color: #fff;
-  box-shadow: 0 0 0 3px rgb(160, 16, 16),
-              0 0 0 8px rgb(134, 132, 132),
-              0 0 0 13px rgb(4, 143, 4);
+  box-shadow:
+    0 0 0 3px rgb(160, 16, 16),
+    0 0 0 8px rgb(134, 132, 132),
+    0 0 0 13px rgb(4, 143, 4);
 }
 
 .tree__container {
   position: relative;
-  overflow: visible;
-
-  width: clamp(10rem, 30vw, 30rem);
+  inline-size: clamp(10rem, 30vw, 30rem);
   aspect-ratio: 3 / 4;
-  margin: 0 auto;
   padding: 0 1rem;
+  margin: 0 auto;
 }
 
 .tree {
   position: relative;
-  width: 100%;
-  height: 100%;
   z-index: 1;
+  inline-size: 100%;
+  block-size: 100%;
   background: linear-gradient(#0caa16, #043106);
   clip-path: polygon(
     50% 0%,
-    
+
     30% 30%,
     40% 30%,
     20% 50%,
@@ -748,14 +695,13 @@ body {
 
 .tree__flower {
   position: absolute;
-  top: -50px;
-  left: 50%;
-  max-width: 5.6rem;
-  height: auto;
+  inset-block-start: -50px;
+  inset-inline-start: 50%;
   z-index: 2;
-
+  max-inline-size: 5.6rem;
+  block-size: auto;
   transform: translateX(-50%);
-  
+
   animation: animated-flower-tree 9s linear infinite;
 }
 
@@ -763,32 +709,68 @@ body {
   from {
     transform: translateX(-50%) rotate(0deg);
   }
-  to { 
-    transform: translateX(-50%) rotate(360deg); 
+  to {
+    transform: translateX(-50%) rotate(360deg);
   }
 }
 
 .tree__light {
   position: absolute;
-  width: 10px;
+  z-index: 3;
+  inline-size: 10px;
   aspect-ratio: 1;
   background: linear-gradient(#f6e495, #a0881a);
-  
+
   clip-path: circle(50%);
-  
+
   animation: animated-lights 1s infinite alternate;
-  z-index: 3;
 }
 
-.light-1 { top: 15%; left: 45%; animation-delay: 0.5s;}
-.light-2 { top: 30%; left: 55%; animation-delay: 1s;}
-.light-3 { top: 40%; left: 35%; animation-delay: .5s;}
-.light-4 { top: 55%; left: 55%; animation-delay: 2s;}
-.light-5 { top: 65%; left: 25%; animation-delay: 1.3s;}
-.light-6 { top: 73%; left: 47%; animation-delay: .8s;}
-.light-7 { top: 85%; left: 75%; animation-delay: 1.7s;}
-.light-8 { top: 90%; left: 15%; animation-delay: 1.3s;}
-.light-9 { top: 95%; left: 55%; animation-delay: .3s;}
+.light-1 {
+  inset-block-start: 15%;
+  inset-inline-start: 45%;
+  animation-delay: 0.5s;
+}
+.light-2 {
+  inset-block-start: 30%;
+  inset-inline-start: 55%;
+  animation-delay: 1s;
+}
+.light-3 {
+  inset-block-start: 40%;
+  inset-inline-start: 35%;
+  animation-delay: 0.5s;
+}
+.light-4 {
+  inset-block-start: 55%;
+  inset-inline-start: 55%;
+  animation-delay: 2s;
+}
+.light-5 {
+  inset-block-start: 65%;
+  inset-inline-start: 25%;
+  animation-delay: 1.3s;
+}
+.light-6 {
+  inset-block-start: 73%;
+  inset-inline-start: 47%;
+  animation-delay: 0.8s;
+}
+.light-7 {
+  inset-block-start: 85%;
+  inset-inline-start: 75%;
+  animation-delay: 1.7s;
+}
+.light-8 {
+  inset-block-start: 90%;
+  inset-inline-start: 15%;
+  animation-delay: 1.3s;
+}
+.light-9 {
+  inset-block-start: 95%;
+  inset-inline-start: 55%;
+  animation-delay: 0.3s;
+}
 
 @keyframes animated-lights {
   from {
@@ -801,72 +783,83 @@ body {
   }
 }
 
-/******************************************/
+/*** ANIMACIÓN SUBTITLE-UNDERLINE ***/
+/* Animación de cambio de color del subrayado en un texto.
+   Se ha utilizado en los subtítulos de algunas páginas (portada, det1 y det2) */
 .animation__subtitle__underline {
-  //animation: animated-subtitle 1s linear infinite;
-  animation: animated-subtitle-underline 2s ease-in-out infinite;
   text-decoration-line: underline;
-  text-decoration-color: rgb(129, 22, 22);
-  //text-decoration-thickness: .2rem;
   text-decoration-thickness: 3px;
+  text-decoration-color: rgb(129, 22, 22);
+  animation: animated-subtitle-underline 2s ease-in-out infinite;
 }
 
 @keyframes animated-subtitle-underline {
-  0% {  text-decoration-color: rgb(129, 22, 22); }
-  10% { text-decoration-color: rgb(150, 30, 30); }
-  20% { text-decoration-color: rgb(200, 50, 50); }
-  30% { text-decoration-color: rgb(210, 70, 60); }
-  40% { text-decoration-color: rgb(220, 100, 80);}
-  50% { text-decoration-color: rgb(240, 130, 100);}
-  60% { text-decoration-color: rgb(220, 100, 80);}
-  70% { text-decoration-color: rgb(200, 50, 50);}
-  80% { text-decoration-color:  rgb(180, 30, 30);}
-  90% { text-decoration-color: rgb(150, 30, 30); }
-  100% { text-decoration-color: rgb(129, 22, 22);}
+  0%,
+  100% {
+    text-decoration-color: rgb(129, 22, 22);
+  }
+  10%,
+  90% {
+    text-decoration-color: rgb(150, 30, 30);
+  }
+  20%,
+  70% {
+    text-decoration-color: rgb(200, 50, 50);
+  }
+  30% {
+    text-decoration-color: rgb(210, 70, 60);
+  }
+  40%,
+  60% {
+    text-decoration-color: rgb(220, 100, 80);
+  }
+  50% {
+    text-decoration-color: rgb(240, 130, 100);
+  }
+  80% {
+    text-decoration-color: rgb(180, 30, 30);
+  }
 }
 
+/*** ANIMACIÓN TEXT-COLOR ***/
+/* Animación para cambiar el color de un texto. En este caso se ha utilizado sobre "2026",
+   en el texto de la postal navideña, en la página de portada. */
 .animation__text__color {
-  //animation: animated-subtitle 1s linear infinite;
-  animation: animated-text-color 2.5s ease-in-out infinite;
-  //text-decoration-line: underline;
-  //text-decoration-color: rgb(129, 22, 22);
-  //text-decoration-thickness: .2rem;
+  animation: animated-text-color 3s ease-in-out infinite;
 }
 
 @keyframes animated-text-color {
-  /*
-  0% {  color: rgb(129, 22, 22); }
-  10% { color: rgb(150, 30, 30); }
-  20% { color: rgb(200, 50, 50); }
-  30% { color: rgb(210, 70, 60); }
-  40% { color: rgb(220, 100, 80);}
-  50% { color: rgb(240, 130, 100);}
-  60% { color: rgb(220, 100, 80);}
-  70% { color: rgb(200, 50, 50);}
-  80% { color:  rgb(180, 30, 30);}
-  90% { color: rgb(150, 30, 30); }
-  100% { color: rgb(129, 22, 22);}
-  */
-  0%   { color: rgb(128, 0, 32); }  
-  20%  { color: rgb(180, 50, 50); }  
-  40%  { color: rgb(209, 142, 17);}  
-  60%  { color: rgb(148, 101, 15);} 
-  80% { color: rgb(7, 90, 62); }
-  100%   { color: rgb(128, 0, 32); }
+  0%,
+  100% {
+    color: rgb(128, 0, 32);
+  }
+  20% {
+    color: rgb(180, 50, 50);
+  }
+  40% {
+    color: rgb(209, 142, 17);
+  }
+  60% {
+    color: rgb(148, 101, 15);
+  }
+  80% {
+    color: rgb(7, 90, 62);
+  }
 }
+/*** fin de Animaciones y Clip-paths ***
+
 
 /******** Estilos de texto ********/
 .text__style-1,
 .text__style-2 {
   @include variables.text-color(variables.$card-title-color);
-  //@include variables.text-color(variables.$gradient-color-1);
 }
 
 .text__style-1 {
-  font-size: clamp(.7rem, 5vw, 1.1rem);
+  font-size: clamp(0.7rem, 5vw, 1.1rem);
   text-decoration: underline;
-  text-decoration-style: dashed;
   text-decoration-thickness: 1.5px;
+  text-decoration-style: dashed;
 }
 
 .text__style-2 {
@@ -875,11 +868,10 @@ body {
 }
 
 .text__style-3 {
+  font-family: "Montserrat", sans-serif;
   font-size: clamp(1.5rem, 5vw, 2.5rem);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900; 
+  font-weight: 900;
 }
-
 
 /********** RESPONSIVE **********/
 

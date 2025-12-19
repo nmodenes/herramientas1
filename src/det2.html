@@ -74,14 +74,19 @@
       <div class="distribution">
         <div class="distribution__left">
 
-          <!-- Para esta imagen no se ofrecen tamaños menores porque la fotografía perdía mucha calidad
-               (al tener detalles muy pequeños) y quedaba muy borrosa. -->
+          <!-- Para esta imagen no se ofrecen tamaños menores específicos para mobile
+               porque la fotografía perdía mucha calidad (al tener detalles muy pequeños) y quedaba muy borrosa. -->
           <picture>
-            <!--
+            
             <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=avif&width=960" type="image/avif" />
             <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=webp&width=960" type="image/webp" />
             <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing_2.jpg?width=960" type="image/jpeg" />   
 
+            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=avif&width=512" type="image/avif" />
+            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=webp&width=512" type="image/webp" />
+            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing_2.jpg?width=512" type="image/jpeg" />
+
+            <!-- Opción 1
             <source media="(min-width: 769px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=avif&width=512" type="image/avif" />
             <source media="(min-width: 769px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=webp&width=512" type="image/webp" />
             <source media="(min-width: 769px)" srcset="./assets/images/shibuya_crossing_2.jpg?width=512" type="image/jpeg" />
@@ -90,9 +95,11 @@
             <source media="(max-width: 768px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=webp&width=256" type="image/webp" />
             <source media="(max-width: 768px)" srcset="./assets/images/shibuya_crossing_2.jpg?width=256" type="image/jpeg" />
             -->
+            
+            <!-- Opción 2
             <source srcset="./assets/images/shibuya_crossing_2.jpg?as=avif" type="image/avif">
             <source srcset="./assets/images/shibuya_crossing_2.jpg?as=webp" type="image/webp">
-
+            -->
             <img class="cardTip__content__img img-fluid distribution__left img__space" src="./assets/images/shibuya_crossing_2.jpg" alt="Cruce de Shibuya">
             
           </picture>
@@ -101,14 +108,19 @@
 
 
         <div class="distribution__right">
-          <!-- Para esta imagen no se ofrecen tamaños menores porque la fotografía perdía mucha calidad
-               (al tener detalles muy pequeños) y quedaba muy borrosa. -->
+          <!-- Para esta imagen no se ofrecen tamaños menores específicos para mobile
+               porque la fotografía perdía mucha calidad (al tener detalles muy pequeños) y quedaba muy borrosa. -->
           <picture>
-            <!--
+            
             <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing.jpg?as=avif&width=960" type="image/avif" />
             <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing.jpg?as=webp&width=960" type="image/webp" />
-            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing.jpg?width=960" type="image/jpeg" />   
+            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing.jpg?width=960" type="image/jpeg" />  
+            
+            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing.jpg?as=avif&width=512" type="image/avif" />
+            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing.jpg?as=webp&width=512" type="image/webp" />
+            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing.jpg?width=512" type="image/jpeg" />
 
+            <!-- Opción 1
             <source media="(min-width: 769px)" srcset="./assets/images/shibuya_crossing.jpg?as=avif&width=512" type="image/avif" />
             <source media="(min-width: 769px)" srcset="./assets/images/shibuya_crossing.jpg?as=webp&width=512" type="image/webp" />
             <source media="(min-width: 769px)" srcset="./assets/images/shibuya_crossing.jpg?width=512" type="image/jpeg" />
@@ -117,8 +129,11 @@
             <source media="(max-width: 768px)" srcset="./assets/images/shibuya_crossing.jpg?as=webp&width=256" type="image/webp" />
             <source media="(max-width: 768px)" srcset="./assets/images/shibuya_crossing.jpg?width=256" type="image/jpeg" />
             -->
+            
+            <!-- Opción 2
             <source srcset="./assets/images/shibuya_crossing.jpg?as=avif" type="image/avif">
             <source srcset="./assets/images/shibuya_crossing.jpg?as=webp" type="image/webp">
+            -->
             <img class="cardTip__content__img img-fluid" src="./assets/images/shibuya_crossing.jpg" alt="Cruce de Shibuya">
             
           </picture>
