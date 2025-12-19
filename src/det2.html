@@ -19,14 +19,10 @@
   <include src="./views/header.html"></include>
   <include src="./views/navigation.html"></include>
 
-  <!--
-  <div class="hero-image-2">
-    <h1 class="hero-title">Barrio de Shibuya</h1>
-  </div>
-  -->
-   <div class="hero__container-2">
-    <picture>
-
+  
+   <!-- Dirección de Arte -->
+     <div class="hero__container-2">
+      <picture>
         <source media="(max-width: 768px)" srcset="./assets/images/hero_shibuya_crossing_portrait.jpg?as=avif" type="image/avif" />
         <source media="(max-width: 768px)" srcset="./assets/images/hero_shibuya_crossing_portrait.jpg?as=webp" type="image/webp" />
         <source media="(max-width: 768px)" srcset="./assets/images/hero_shibuya_crossing_portrait.jpg" type="image/jpeg" />
@@ -36,11 +32,11 @@
         <source media="(min-width: 769px)" srcset="./assets/images/hero_shibuya_crossing.jpg" type="image/jpeg" />
 
         <img class="hero__image-2" src="./assets/images/hero_shibuya_crossing.jpg" alt="Templo Senso-ji en Tokyo" />
-
       </picture>
 
       <h1 class="hero__title">Barrio de Shibuya</h1>
     </div>
+
   <main>
 
     <article>
@@ -76,10 +72,12 @@
       <h2 class="h2__title"><i class="fa-solid fa-person-walking" aria-hidden="true"></i> Cruce de Shibuya</h2>
 
       <div class="distribution">
-        <!--<img class="cardTip__content__img img-fluid distribution__left img__space" src="./assets/images/shibuya_crossing_2.jpg" alt="Cruce de Shibuya">--><div class="distribution__left">
+        <div class="distribution__left">
 
+          <!-- Para esta imagen no se ofrecen tamaños menores porque la fotografía perdía mucha calidad
+               (al tener detalles muy pequeños) y quedaba muy borrosa. -->
           <picture>
-<!--
+            <!--
             <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=avif&width=960" type="image/avif" />
             <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=webp&width=960" type="image/webp" />
             <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing_2.jpg?width=960" type="image/jpeg" />   
@@ -91,7 +89,7 @@
             <source media="(max-width: 768px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=avif&width=256" type="image/avif" />
             <source media="(max-width: 768px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=webp&width=256" type="image/webp" />
             <source media="(max-width: 768px)" srcset="./assets/images/shibuya_crossing_2.jpg?width=256" type="image/jpeg" />
--->
+            -->
             <source srcset="./assets/images/shibuya_crossing_2.jpg?as=avif" type="image/avif">
             <source srcset="./assets/images/shibuya_crossing_2.jpg?as=webp" type="image/webp">
 
@@ -103,9 +101,10 @@
 
 
         <div class="distribution__right">
-          <!--<img class="cardTip__content__img img-fluid" src="./assets/images/shibuya_crossing.jpg" alt="Cruce de Shibuya">-->
+          <!-- Para esta imagen no se ofrecen tamaños menores porque la fotografía perdía mucha calidad
+               (al tener detalles muy pequeños) y quedaba muy borrosa. -->
           <picture>
-<!--
+            <!--
             <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing.jpg?as=avif&width=960" type="image/avif" />
             <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing.jpg?as=webp&width=960" type="image/webp" />
             <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing.jpg?width=960" type="image/jpeg" />   
@@ -117,8 +116,7 @@
             <source media="(max-width: 768px)" srcset="./assets/images/shibuya_crossing.jpg?as=avif&width=256" type="image/avif" />
             <source media="(max-width: 768px)" srcset="./assets/images/shibuya_crossing.jpg?as=webp&width=256" type="image/webp" />
             <source media="(max-width: 768px)" srcset="./assets/images/shibuya_crossing.jpg?width=256" type="image/jpeg" />
-
--->
+            -->
             <source srcset="./assets/images/shibuya_crossing.jpg?as=avif" type="image/avif">
             <source srcset="./assets/images/shibuya_crossing.jpg?as=webp" type="image/webp">
             <img class="cardTip__content__img img-fluid" src="./assets/images/shibuya_crossing.jpg" alt="Cruce de Shibuya">
@@ -135,7 +133,6 @@
       <h2 class="h2__title"><i class="fas fa-landmark" aria-hidden="true"></i> Estatua de Hachikō</h2>
 
       <div class="distribution">
-        <!--<img class="cardTip__content__img img-fluid distribution__left" src="./assets/images/shibuya_hachiko.jpg" alt="Estatua de Hachiko en el barrio de Shibuya" width="300">-->
         <div class="distribution__left">
 
           <picture>
@@ -175,7 +172,7 @@
   
       <div class="img-content1">
         <a href="https://commons.wikimedia.org/wiki/File:Fountain_Yoyogipark.JP" target="_blank">
-          <!--<img class="img-fluid" src="./assets/images/shibuya_yoyogi_park.jpg" alt="Parque de Yoyogi con gente relajándose." title="Shinjiro, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons">-->
+          
           <picture>
 
             <source media="(max-width: 768px)" srcset="./assets/images/shibuya_yoyogi_park_portrait.jpg?as=avif" type="image/avif" />
@@ -203,7 +200,7 @@
       <h2 class="h2__title"><i class="fa-solid fa-leaf" aria-hidden="true"></i></i> Santuario Meiji</h2>
 
       <div class="img-content1">
-        <!--<img class="img-fluid" src="./assets/images/shibuya_meiji.jpg" alt="Camino hacia el santuario Meiji desde una puerta de cedro de Torii" title="Fotografía de Rhys Abel de Pexels">-->
+        
         <picture>
 
           <source media="(max-width: 768px)" srcset="./assets/images/shibuya_meiji_portrait.jpg?as=avif" type="image/avif" />

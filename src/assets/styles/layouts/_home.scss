@@ -280,10 +280,17 @@ footer {
 .hero__container-2 {
   position: relative;
   width: 100%;
+  //block-size: 30rem;
+}
+
+.hero__container-1 {
+  block-size: 24rem;
+}
+
+.hero__container-3 {
   block-size: 30rem;
 }
 
- //////////////////////////////////16
 .hero__container-1 picture,
 .hero__container-2 picture,
 .hero__image-1,
@@ -458,8 +465,8 @@ caption {
 /********** ANIMACIONES **********/
 /*********************************/
 
-/*** ANIMACIÓN LETRAS/PALABRAS TITULO ***/
-/* Animación para que en el título de la página de portada aparezcan
+/*** ANIMACIÓN LETRAS/PALABRAS TÍTULO ***/
+/* Animación para que en el título de la página de portada/categoria/links aparezcan
    las letras/palabras animadas de derecha a izquierda, hasta su posición centrada
    en pantalla, con un delay */
 .animation__title {
@@ -472,6 +479,7 @@ caption {
   padding-bottom: .5rem; 
 
   margin-top: 0;
+  
 }
 
 .animation__title span {
@@ -498,12 +506,13 @@ caption {
 }
 
 /*** ANIMACIÓN LÍNEAS TÍTULO ***/
-/* Animación para que en el título de la página de portada aparezcan
+/* Animación para que en el título de la página de portada/categoria/links aparezcan
    unas líneas animadas de izquierda a derecha, encuadrando el título */
 .animation__line {
   position: relative;
   display: inline-block;
   padding: clamp(.1rem, 5vw, .8rem) 0;
+  
 }
 
 .animation__line::after,
@@ -518,7 +527,6 @@ caption {
   animation: animated-line 2s ease-out forwards;
 }
 
-
 .animation__line::after {
   bottom: 0;
   animation-delay: 1.3s;
@@ -527,7 +535,6 @@ caption {
 .animation__line::before {
   top: 0; 
 }
-
 
 @keyframes animated-line {
   0% {
@@ -543,19 +550,59 @@ caption {
 /*** ANIMACIÓN FLORES DE SAKURA ***/
 /* Animación para que la imagen de la flor de sakura en .SVG, haga un efecto
    de caída y rotación sobre el título de la página. */
+   /*
+.flower__wrapper {
+  position: relative;
+  width: 100%;
+  //height: 300px; 
+  //overflow-x: hidden;
+  //overflow-y: visible;
+  //margin-top: 2rem;
+  //clip-path: inset(0 0 0 0);
+}
+  */
+
+/* Se ha hecho un "overflow-x:hidden" porque la animación de la caída de las flores 
+   de sakura producía desbordamiento en mobile.
+   Previamente se había hecho un contenedor padre para que no se produjese desbordamiento
+   fuera del contenedor, pero aparecía una barra de scroll marcando el contenedor.*/
+html, 
+body {
+  overflow-x: hidden;
+}
+
+/*
+.main__style {
+  padding-top:0.05rem;
+}
+  */
+  
+
 .animation__flower {
   position: relative;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  //overflow: hidden;
+  
+  //height: 3rem;
+  //pointer-events: none;
+  
 }
 
 .flower {
   position: absolute;
-  top: -50px;
-  left: 100%;
+  //top: -60px;
+  //top: clamp(-35px, 5vw, -60px);
+  top: clamp(-45px, 5vw, -85px);
+  //left: 100%;
+  //top: -30px;
+  //top: 0;
+  left:0;
+  
   animation: animated-flower 5s linear infinite;
 
   max-width: 40px;
   height: auto;
+  
 }
 
 @include variables.flower-position(1, 0%, 2s);
@@ -566,48 +613,44 @@ caption {
 @include variables.flower-position(6, 75%, 3.7s);
 @include variables.flower-position(7, 90%, 2.5s);
 
-/*
-@include variables.flower-positiion(1, 0%, 0s);
-@include variables.flower-positiion(2, 15%, 1s);
-@include variables.flower-positiion(3, 30%, 2s);
-@include variables.flower-positiion(4, 45%, 1.5s);
-@include variables.flower-positiion(5, 60%, 0.5s);
-@include variables.flower-positiion(6, 75%, 1s);
-@include variables.flower-positiion(7, 90%, 0.5s);
-*/
 
 @keyframes animated-flower {
+  
   0% {
     transform: translateX(0) translateY(0) rotate(0deg);
+    //transform: translateX(0) translateY(-60px) rotate(0deg);
     opacity: 1;
   }
   100% {
     //transform: translateX(100px) translateY(400px) rotate(360deg);
-    transform: translateX(60px) translateY(200px) rotate(360deg);
+    //transform: translateX(60px) translateY(200px) rotate(360deg);
+    //transform: translateX(3.75rem) translateY(12rem) rotate(360deg);
+    transform: translateX(3.75rem) translateY(clamp(10rem, 12vw, 12rem)) rotate(360deg);
+    //transform: translateX(60px) translateY(clamp(180px, 10vw, 400px)) rotate(360deg);
     opacity: 0;
   }
+    
+    /*
+  100% {
+    transform: translateX(20px) translateY(200px) rotate(360deg);
+  }
+    */
 }
 
 
-
 /****** CLIP-PATH ******/
-/*Nota: código comentado para la animación del cambio de la imagen*/
+/*Clip-path sobre la imagen de portada del monte Fuji. Haciendo hoover sobre la imagen aparecerá la original.*/
 .image__container {
   position: relative;
-  //max-width: 800px;
-  //height: 500px;
-  //width: 100%;
-  //display: inline-block;
-
+  
   width: 100%;
   aspect-ratio: 1;
 
   border: 3px dashed #000;
   box-sizing: border-box;
 }
-//.image__container img {
-.animated__photo {
 
+.animated__photo {
   position: absolute;
   top: 0;
   left: 0;
@@ -615,31 +658,19 @@ caption {
   height: 100%;
   object-fit: cover;
   transition: opacity .5s ease-in-out;
-  //z-index: 1;
 }
 
 .image__top {
-  //opacity: 1;
   opacity: 0;
-  //animation: change-photo 6s infinite alternate;
-  
-  //z-index: 1;
   z-index: 2;
 }
 
 .image__bottom {
-  //opacity: 0;
   opacity: 1;
-  //animation: change-photo 10s infinite alternate; 
-  //animation-delay: 5s;
-  //z-index: 2;
   z-index: 1;
 }
 
-
-
 .clip-path__monte-fuji {
-  
   clip-path: polygon(
     30% 15%,   
     55% 10%,   
@@ -650,34 +681,7 @@ caption {
     15% 97%,   
     15% 95%    
   );
-
-  //animation: change-photo 5s infinite alternate ease-in-out;
-  //opacity: 0;
-  
-  //z-index: 2;
 }
-
-.clip-path__monte-fuji__circle {
-  clip-path: circle(50%);
-  top: 10%;
-  left: 10%;
-  width: 2rem;
-  height: 2rem;
-}
-
-/*
-@keyframes change-photo {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-  */
 
 .image__container:hover .image__top,
 .image__container:focus .image__top {
@@ -689,143 +693,40 @@ caption {
   opacity: 0;
 }
 
-/**********************************************************/
-/**********************************************************/
-/*
-.tree {
-  display: block;
-  width: 300px;
-  height: 400px;
-  background-color: #1b5e20;
-  clip-path: polygon(
-    50% 0%,
-    70% 20%,
-    60% 20%,
-    85% 45%,
-    70% 45%,
-    95% 75%,
-    5% 75%,
-    30% 45%,
-    15% 45%,
-    40% 20%,
-    30% 20%
-  );
-}
-  */
 
-/*
-    50% 0%,
-    30% 30%,
-    40% 30%,
-    20% 50%,
-    35% 50%,
-    10% 70%,
-    25% 70%,
-    0% 100%,
-    100% 100%,
-    70% 70%,
-    90% 70%,
-    65% 50%,
-    80% 50%,
-    60% 30%,
-    70% 30%
-    */
-    /*
-    50% 0%,
-    
-    30% 30%,
-    40% 30%,
-    20% 50%,
-    35% 50%,
-    15% 70%,
-    30% 70%,
-    0% 100%,
-    100% 100%,
-    70% 70%,
-    85% 70%,
-    65% 50%,
-    80% 50%,
-    60% 30%,
-    70% 30%
-    */
+/****** CLIP-PATH y ANIMACIONES de las LUCES y la FLOR de sakura ******/
+/* Clip-path del arbol de navidad y las luces. Animaciones en la flor de sakura y las luces.*/
 .distribution__center__container {
   display: flex;
-  //text-align: center;
   justify-content: center;
   align-items: center;
+  margin: 2rem auto;
 }
 .distribution__center {
-  //margin: 0;
-  //min-height: 100vh;
- 
-  //display: flex;
-  //display: inline-block;
-  //justify-content: center;
-  //align-items: center;
-
-  //text-align: center;
-
-  
-  //margin: 0 20rem;
-  //margin: 2rem 20rem;
-  //margin: 2rem auto;
-  //margin: 2rem clamp(2rem, 20vw, 200rem);
-  //margin: 4rem clamp(2em, 20vw, 632px);
-  margin: 4rem auto;
-  padding: 4rem .5rem;
-  //margin: 2rem clamp(0vh, 5vw, 50vh);
-  //margin-left: clamp(1rem, 5vw, 5rem);
-  //margin-right: clamp(1rem, 5vw, 5rem);
+  padding: 4rem .5rem 1rem .5rem;
   background-color: #fff;
-  //box-shadow: 0 12px 24px rgb(0 0 0 / 0.2);
   box-shadow: 0 0 0 3px rgb(160, 16, 16),
               0 0 0 8px rgb(134, 132, 132),
               0 0 0 13px rgb(4, 143, 4);
-
 }
-/*
-.distribution__inline {
-  display: inline-block;
-}*/
 
 .tree__container {
-  
   position: relative;
-  /*
-  //width: 300px;
-  //height: 400px;
-  //margin-top: 20rem;
-  */
   overflow: visible;
-  
-  //width: min(80vw, 300px);
-  //width: min(40vw, 60vw);
+
   width: clamp(10rem, 30vw, 30rem);
-  //max-width: 300px; 
   aspect-ratio: 3 / 4;
-  //margin: 0 4rem;
   margin: 0 auto;
-
-  
-
-  
-
+  padding: 0 1rem;
 }
 
 .tree {
-  
   position: relative;
-  /*
-  //width: 300px;
-  //height: 400px;
-  */
   width: 100%;
   height: 100%;
-  
   z-index: 1;
   background: linear-gradient(#0caa16, #043106);
   clip-path: polygon(
-    
     50% 0%,
     
     30% 30%,
@@ -849,39 +750,30 @@ caption {
   position: absolute;
   top: -50px;
   left: 50%;
-  
-
-  max-width: 90px;
+  max-width: 5.6rem;
   height: auto;
   z-index: 2;
 
   transform: translateX(-50%);
-  
   
   animation: animated-flower-tree 9s linear infinite;
 }
 
 @keyframes animated-flower-tree {
   from {
-    
     transform: translateX(-50%) rotate(0deg);
-    
   }
-  to {
-    
-    transform: translateX(-50%) rotate(360deg);
-    
+  to { 
+    transform: translateX(-50%) rotate(360deg); 
   }
 }
 
 .tree__light {
   position: absolute;
   width: 10px;
-  
   aspect-ratio: 1;
- 
   background: linear-gradient(#f6e495, #a0881a);
-  //background-color: red;
+  
   clip-path: circle(50%);
   
   animation: animated-lights 1s infinite alternate;
@@ -897,14 +789,7 @@ caption {
 .light-7 { top: 85%; left: 75%; animation-delay: 1.7s;}
 .light-8 { top: 90%; left: 15%; animation-delay: 1.3s;}
 .light-9 { top: 95%; left: 55%; animation-delay: .3s;}
-/*
-.light-2 { top: 30%; left: 30%; animation-delay: 1s; background-color:red;}
-.light-3 { top: 45%; left: 30%; animation-delay: .5s; background-color:red;}
-.light-4 { top: 60%; left: 60%; animation-delay: 2s; }
-.light-5 { top: 75%; left: 60%; animation-delay: 1.3s;}
-.light-6 { top: 90%; left: 60%; animation-delay: 2s; }
-.light-7 { top: 50%; left: 60%; animation-delay: 2s; }
-*/
+
 @keyframes animated-lights {
   from {
     opacity: 0.4;
@@ -917,19 +802,15 @@ caption {
 }
 
 
-/***********************************************************/
-//***********************************18
+/******** Estilos de texto ********/
 .text__style-1,
 .text__style-2 {
-  @include variables.text-color(variables.$card-link-color);
-  //font-size: 2rem;
-  
-  
-  
+  @include variables.text-color(variables.$card-title-color);
+  //@include variables.text-color(variables.$gradient-color-1);
 }
 
 .text__style-1 {
-  font-size: clamp(.7rem, 5vw, 1.2rem);
+  font-size: clamp(.7rem, 5vw, 1.1rem);
   text-decoration: underline;
   text-decoration-style: dashed;
   text-decoration-thickness: 1.5px;
@@ -945,8 +826,6 @@ caption {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900; 
 }
-
-
 
 
 /********** RESPONSIVE **********/
