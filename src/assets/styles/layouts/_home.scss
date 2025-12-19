@@ -801,6 +801,59 @@ body {
   }
 }
 
+/******************************************/
+.animation__subtitle__underline {
+  //animation: animated-subtitle 1s linear infinite;
+  animation: animated-subtitle-underline 2s ease-in-out infinite;
+  text-decoration-line: underline;
+  text-decoration-color: rgb(129, 22, 22);
+  //text-decoration-thickness: .2rem;
+  text-decoration-thickness: 3px;
+}
+
+@keyframes animated-subtitle-underline {
+  0% {  text-decoration-color: rgb(129, 22, 22); }
+  10% { text-decoration-color: rgb(150, 30, 30); }
+  20% { text-decoration-color: rgb(200, 50, 50); }
+  30% { text-decoration-color: rgb(210, 70, 60); }
+  40% { text-decoration-color: rgb(220, 100, 80);}
+  50% { text-decoration-color: rgb(240, 130, 100);}
+  60% { text-decoration-color: rgb(220, 100, 80);}
+  70% { text-decoration-color: rgb(200, 50, 50);}
+  80% { text-decoration-color:  rgb(180, 30, 30);}
+  90% { text-decoration-color: rgb(150, 30, 30); }
+  100% { text-decoration-color: rgb(129, 22, 22);}
+}
+
+.animation__text__color {
+  //animation: animated-subtitle 1s linear infinite;
+  animation: animated-text-color 2.5s ease-in-out infinite;
+  //text-decoration-line: underline;
+  //text-decoration-color: rgb(129, 22, 22);
+  //text-decoration-thickness: .2rem;
+}
+
+@keyframes animated-text-color {
+  /*
+  0% {  color: rgb(129, 22, 22); }
+  10% { color: rgb(150, 30, 30); }
+  20% { color: rgb(200, 50, 50); }
+  30% { color: rgb(210, 70, 60); }
+  40% { color: rgb(220, 100, 80);}
+  50% { color: rgb(240, 130, 100);}
+  60% { color: rgb(220, 100, 80);}
+  70% { color: rgb(200, 50, 50);}
+  80% { color:  rgb(180, 30, 30);}
+  90% { color: rgb(150, 30, 30); }
+  100% { color: rgb(129, 22, 22);}
+  */
+  0%   { color: rgb(128, 0, 32); }  
+  20%  { color: rgb(180, 50, 50); }  
+  40%  { color: rgb(209, 142, 17);}  
+  60%  { color: rgb(148, 101, 15);} 
+  80% { color: rgb(7, 90, 62); }
+  100%   { color: rgb(128, 0, 32); }
+}
 
 /******** Estilos de texto ********/
 .text__style-1,
