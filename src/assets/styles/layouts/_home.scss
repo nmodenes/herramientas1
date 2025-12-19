@@ -473,7 +473,7 @@ caption {
   /* Cambio de font-size en el span porque en local se dimensionaba bien el título
      pero al subirlo a netlify no cambiaba el tamaño*/
   //font-size: clamp(1.1rem, 10vw, 2.1rem);
-  font-size: 2.1rem;
+  font-size: 3rem;
 }
 
 /* Para este código se ha creado en assets/scripts/main.js una función de JavaScript
@@ -996,7 +996,7 @@ caption {
   }
 
   .animation__title span {
-    font-size: 1.1rem;
+    font-size: 2.5rem;
   }
   
 }
