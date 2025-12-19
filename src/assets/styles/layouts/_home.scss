@@ -470,7 +470,10 @@ caption {
   display: inline-block;
   transform: translateX(100vw);
   animation: animated-title 0.5s ease-out forwards;
-  font-size: clamp(1.1rem, 10vw, 2.1rem);
+  /* Cambio de font-size en el span porque en local se dimensionaba bien el título
+     pero al subirlo a netlify no cambiaba el tamaño*/
+  //font-size: clamp(1.1rem, 10vw, 2.1rem);
+  font-size: 2.1rem;
 }
 
 /* Para este código se ha creado en assets/scripts/main.js una función de JavaScript
@@ -921,6 +924,10 @@ caption {
   .card__content p {
     font-size: 0.95rem;
   }
+
+  .animation__title span { 
+    font-size: 1.7rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -987,4 +994,9 @@ caption {
     padding: 0;
     margin: 0;
   }
+
+  .animation__title span {
+    font-size: 1.1rem;
+  }
+  
 }
