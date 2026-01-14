@@ -21,6 +21,7 @@
   <include src="./views/navigation.html"></include>
 
   <!-- Dirección de Arte -->
+  <!--Imagen hero visible viewport inicial-->
   <div class="hero__container-1">
     <picture>
 
@@ -32,7 +33,7 @@
       <source media="(min-width: 769px)" srcset="./assets/images/hero_sensoji.jpg?as=webp" type="image/webp" />
       <source media="(min-width: 769px)" srcset="./assets/images/hero_sensoji.jpg" type="image/jpeg" />
 
-      <img class="hero__image-1" src="./assets/images/hero_sensoji.jpg" width="1920" height="1280" alt="Templo Senso-ji en Tokyo" fetchpriority="high"/>
+      <img class="hero__image-1" src="./assets/images/hero_sensoji.jpg" width="1920" height="1280" alt="Templo Senso-ji en Tokyo"/><!--fetchpriority="high"-->
 
     </picture>
     <h1 class="hero__title">Barrio de Taitō</h1>
@@ -76,13 +77,13 @@
       <h2 class="h2__title animation__subtitle__underline" id="Japatonic-comida"><i class="fa-solid fa-bowl-food" aria-hidden="true"></i> Recomendaciones de comida del youtuber Japatonic</h2>
 
       <figure class="video">
-        <!--
+      
         <iframe class="video__iframe" width="560" height="315" src="https://www.youtube.com/embed/6vDFYHFTZeI?si=1HoDBn-K9YkeWSuw"
           title="video de YouTube de Japatonic: La trampa de la comida auténtica de Japón"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy">
         </iframe>
-        -->
+        
         <figcaption class="video__figcaption">
           <cite>Japatonic - La trampa de la comida auténtica de Japón</cite>
         </figcaption>
@@ -153,6 +154,7 @@
 
   <include src="./views/footer.html"></include>
   <script type="module" src="./assets/scripts/main.js"></script>
+  
 </body>
 
 </html>
