@@ -11,6 +11,8 @@
 
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss">
+  <!--Añadido preload a la imagen SVG del background del header-->
+  <link rel="preload" type="image/svg+xml" href="./assets/images/wave.svg" as="image" fetchpriority="high">
   
 </head>
 
@@ -24,15 +26,20 @@
    <!--Imagen hero visible viewport inicial-->
      <div class="hero__container-2">
       <picture>
-        <source media="(max-width: 768px)" srcset="./assets/images/hero_shibuya_crossing_portrait.jpg?as=avif" type="image/avif" />
-        <source media="(max-width: 768px)" srcset="./assets/images/hero_shibuya_crossing_portrait.jpg?as=webp" type="image/webp" />
-        <source media="(max-width: 768px)" srcset="./assets/images/hero_shibuya_crossing_portrait.jpg" type="image/jpeg" />
+
+        <source media="(max-width: 480px)" srcset="./assets/images/hero_shibuya_crossing_portrait.jpg?as=avif&width=480" type="image/avif" />
+        <source media="(max-width: 480px)" srcset="./assets/images/hero_shibuya_crossing_portrait.jpg?as=webp&width=480" type="image/webp" />
+        <source media="(max-width: 480px)" srcset="./assets/images/hero_shibuya_crossing_portrait.jpg?width=480" type="image/jpeg" />
+
+        <source media="(max-width: 768px)" srcset="./assets/images/hero_shibuya_crossing_portrait.jpg?as=avif&width=768" type="image/avif" />
+        <source media="(max-width: 768px)" srcset="./assets/images/hero_shibuya_crossing_portrait.jpg?as=webp&width=768" type="image/webp" />
+        <source media="(max-width: 768px)" srcset="./assets/images/hero_shibuya_crossing_portrait.jpg?width=768" type="image/jpeg" />
 
         <source media="(min-width: 769px)" srcset="./assets/images/hero_shibuya_crossing.jpg?as=avif" type="image/avif" />
         <source media="(min-width: 769px)" srcset="./assets/images/hero_shibuya_crossing.jpg?as=webp" type="image/webp" />
         <source media="(min-width: 769px)" srcset="./assets/images/hero_shibuya_crossing.jpg" type="image/jpeg" />
 
-        <img class="hero__image-2" src="./assets/images/hero_shibuya_crossing.jpg" alt="Templo Senso-ji en Tokyo" />
+        <img class="hero__image-2" src="./assets/images/hero_shibuya_crossing.jpg" width="1920" height="1563" alt="Templo Senso-ji en Tokyo" fetchpriority="high"/>
       </picture>
 
       <h1 class="hero__title">Barrio de Shibuya</h1>
@@ -79,13 +86,13 @@
                porque la fotografía perdía mucha calidad (al tener detalles muy pequeños) y quedaba muy borrosa. -->
           <picture>
             
-            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=avif&width=960" type="image/avif" />
-            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=webp&width=960" type="image/webp" />
-            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing_2.jpg?width=960" type="image/jpeg" />   
+            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=avif&width=720" type="image/avif" />
+            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=webp&width=720" type="image/webp" />
+            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing_2.jpg?width=720" type="image/jpeg" />   
 
-            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=avif&width=512" type="image/avif" />
-            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=webp&width=512" type="image/webp" />
-            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing_2.jpg?width=512" type="image/jpeg" />
+            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=avif&width=450" type="image/avif" />
+            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=webp&width=450" type="image/webp" />
+            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing_2.jpg?width=450" type="image/jpeg" />
 
             <!-- Opción 1
             <source media="(min-width: 769px)" srcset="./assets/images/shibuya_crossing_2.jpg?as=avif&width=512" type="image/avif" />
@@ -101,7 +108,7 @@
             <source srcset="./assets/images/shibuya_crossing_2.jpg?as=avif" type="image/avif">
             <source srcset="./assets/images/shibuya_crossing_2.jpg?as=webp" type="image/webp">
             -->
-            <img class="cardTip__content__img img-fluid distribution__left img__space" src="./assets/images/shibuya_crossing_2.jpg" alt="Cruce de Shibuya" loading="lazy">
+            <img class="cardTip__content__img img-fluid distribution__left img__space" src="./assets/images/shibuya_crossing_2.jpg" width="720" height="1080" alt="Cruce de Shibuya" loading="lazy">
             
           </picture>
 
@@ -113,13 +120,13 @@
                porque la fotografía perdía mucha calidad (al tener detalles muy pequeños) y quedaba muy borrosa. -->
           <picture>
             
-            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing.jpg?as=avif&width=960" type="image/avif" />
-            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing.jpg?as=webp&width=960" type="image/webp" />
-            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing.jpg?width=960" type="image/jpeg" />  
+            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing.jpg?as=avif&width=720" type="image/avif" />
+            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing.jpg?as=webp&width=720" type="image/webp" />
+            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_crossing.jpg?width=720" type="image/jpeg" />  
             
-            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing.jpg?as=avif&width=512" type="image/avif" />
-            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing.jpg?as=webp&width=512" type="image/webp" />
-            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing.jpg?width=512" type="image/jpeg" />
+            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing.jpg?as=avif&width=450" type="image/avif" />
+            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing.jpg?as=webp&width=450" type="image/webp" />
+            <source media="(max-width: 1024px)" srcset="./assets/images/shibuya_crossing.jpg?width=450" type="image/jpeg" />
 
             <!-- Opción 1
             <source media="(min-width: 769px)" srcset="./assets/images/shibuya_crossing.jpg?as=avif&width=512" type="image/avif" />
@@ -135,7 +142,7 @@
             <source srcset="./assets/images/shibuya_crossing.jpg?as=avif" type="image/avif">
             <source srcset="./assets/images/shibuya_crossing.jpg?as=webp" type="image/webp">
             -->
-            <img class="cardTip__content__img img-fluid" src="./assets/images/shibuya_crossing.jpg" alt="Cruce de Shibuya" loading="lazy">
+            <img class="cardTip__content__img img-fluid" src="./assets/images/shibuya_crossing.jpg" width="720" height="479" alt="Cruce de Shibuya" loading="lazy">
             
           </picture>
 
@@ -153,19 +160,19 @@
 
           <picture>
 
-            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_hachiko.jpg?as=avif&width=960" type="image/avif" />
-            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_hachiko.jpg?as=webp&width=960" type="image/webp" />
-            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_hachiko.jpg?width=960" type="image/jpeg" />   
+            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_hachiko.jpg?as=avif&width=600" type="image/avif" />
+            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_hachiko.jpg?as=webp&width=600" type="image/webp" />
+            <source media="(min-width: 1025px)" srcset="./assets/images/shibuya_hachiko.jpg?width=600" type="image/jpeg" />   
 
-            <source media="(min-width: 769px)" srcset="./assets/images/shibuya_hachiko.jpg?as=avif&width=512" type="image/avif" />
-            <source media="(min-width: 769px)" srcset="./assets/images/shibuya_hachiko.jpg?as=webp&width=512" type="image/webp" />
-            <source media="(min-width: 769px)" srcset="./assets/images/shibuya_hachiko.jpg?width=512" type="image/jpeg" />
+            <source media="(min-width: 769px)" srcset="./assets/images/shibuya_hachiko.jpg?as=avif&width=300" type="image/avif" />
+            <source media="(min-width: 769px)" srcset="./assets/images/shibuya_hachiko.jpg?as=webp&width=300" type="image/webp" />
+            <source media="(min-width: 769px)" srcset="./assets/images/shibuya_hachiko.jpg?width=300" type="image/jpeg" />
 
             <source media="(max-width: 768px)" srcset="./assets/images/shibuya_hachiko.jpg?as=avif&width=256" type="image/avif" />
             <source media="(max-width: 768px)" srcset="./assets/images/shibuya_hachiko.jpg?as=webp&width=256" type="image/webp" />
             <source media="(max-width: 768px)" srcset="./assets/images/shibuya_hachiko.jpg?width=256" type="image/jpeg" />
 
-            <img class="cardTip__content__img img-fluid distribution__left" src="./assets/images/shibuya_hachiko.jpg" alt="Estatua de Hachiko en el barrio de Shibuya" loading="lazy">
+            <img class="cardTip__content__img img-fluid distribution__left" src="./assets/images/shibuya_hachiko.jpg" width="600" height="685" alt="Estatua de Hachiko en el barrio de Shibuya" loading="lazy">
             
           </picture>
 
@@ -191,15 +198,19 @@
           
           <picture>
 
-            <source media="(max-width: 768px)" srcset="./assets/images/shibuya_yoyogi_park_portrait.jpg?as=avif" type="image/avif" />
-            <source media="(max-width: 768px)" srcset="./assets/images/shibuya_yoyogi_park_portrait.jpg?as=webp" type="image/webp" />
-            <source media="(max-width: 768px)" srcset="./assets/images/shibuya_yoyogi_park_portrait.jpg" type="image/jpeg" />
+            <source media="(max-width: 480px)" srcset="./assets/images/shibuya_yoyogi_park_portrait.jpg?as=avif&width=450" type="image/avif" />
+            <source media="(max-width: 480px)" srcset="./assets/images/shibuya_yoyogi_park_portrait.jpg?as=webp&width=450" type="image/webp" />
+            <source media="(max-width: 480px)" srcset="./assets/images/shibuya_yoyogi_park_portrait.jpg?width=450" type="image/jpeg" />
 
-            <source media="(min-width: 769px)" srcset="./assets/images/shibuya_yoyogi_park.jpg?as=avif" type="image/avif" />
-            <source media="(min-width: 769px)" srcset="./assets/images/shibuya_yoyogi_park.jpg?as=webp" type="image/webp" />
-            <source media="(min-width: 769px)" srcset="./assets/images/shibuya_yoyogi_park.jpg" type="image/jpeg" />
+            <source media="(max-width: 768px)" srcset="./assets/images/shibuya_yoyogi_park_portrait.jpg?as=avif&width=768" type="image/avif" />
+            <source media="(max-width: 768px)" srcset="./assets/images/shibuya_yoyogi_park_portrait.jpg?as=webp&width=768" type="image/webp" />
+            <source media="(max-width: 768px)" srcset="./assets/images/shibuya_yoyogi_park_portrait.jpg?width=768" type="image/jpeg" />
 
-            <img class="img-fluid" src="./assets/images/shibuya_yoyogi_park.jpg" alt="Parque de Yoyogi con gente relajándose." title="Shinjiro, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons" loading="lazy">
+            <source media="(min-width: 769px)" srcset="./assets/images/shibuya_yoyogi_park.jpg?as=avif&width=1280" type="image/avif" />
+            <source media="(min-width: 769px)" srcset="./assets/images/shibuya_yoyogi_park.jpg?as=webp&width=1280" type="image/webp" />
+            <source media="(min-width: 769px)" srcset="./assets/images/shibuya_yoyogi_park.jpg?width=1280" type="image/jpeg" />
+
+            <img class="img-fluid" src="./assets/images/shibuya_yoyogi_park.jpg" width="1280" height="720" alt="Parque de Yoyogi con gente relajándose." title="Shinjiro, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons" loading="lazy">
 
           </picture> 
         </a>
@@ -219,15 +230,19 @@
         
         <picture>
 
-          <source media="(max-width: 768px)" srcset="./assets/images/shibuya_meiji_portrait.jpg?as=avif" type="image/avif" />
-          <source media="(max-width: 768px)" srcset="./assets/images/shibuya_meiji_portrait.jpg?as=webp" type="image/webp" />
-          <source media="(max-width: 768px)" srcset="./assets/images/shibuya_meiji_portrait.jpg" type="image/jpeg" />
+          <source media="(max-width: 480px)" srcset="./assets/images/shibuya_meiji_portrait.jpg?as=avif&width=450" type="image/avif" />
+          <source media="(max-width: 480px)" srcset="./assets/images/shibuya_meiji_portrait.jpg?as=webp&width=450" type="image/webp" />
+          <source media="(max-width: 480px)" srcset="./assets/images/shibuya_meiji_portrait.jpg?width=450" type="image/jpeg" />
 
-          <source media="(min-width: 769px)" srcset="./assets/images/shibuya_meiji.jpg?as=avif" type="image/avif" />
-          <source media="(min-width: 769px)" srcset="./assets/images/shibuya_meiji.jpg?as=webp" type="image/webp" />
-          <source media="(min-width: 769px)" srcset="./assets/images/shibuya_meiji.jpg" type="image/jpeg" />
+          <source media="(max-width: 768px)" srcset="./assets/images/shibuya_meiji_portrait.jpg?as=avif&width=750" type="image/avif" />
+          <source media="(max-width: 768px)" srcset="./assets/images/shibuya_meiji_portrait.jpg?as=webp&width=750" type="image/webp" />
+          <source media="(max-width: 768px)" srcset="./assets/images/shibuya_meiji_portrait.jpg?width=750" type="image/jpeg" />
 
-          <img class="img-fluid" src="./assets/images/shibuya_meiji.jpg" alt="Camino hacia el santuario Meiji desde una puerta de cedro de Torii" title="Fotografía de Rhys Abel de Pexels" loading="lazy">
+          <source media="(min-width: 769px)" srcset="./assets/images/shibuya_meiji.jpg?as=avif&width=1280" type="image/avif" />
+          <source media="(min-width: 769px)" srcset="./assets/images/shibuya_meiji.jpg?as=webp&width=1280" type="image/webp" />
+          <source media="(min-width: 769px)" srcset="./assets/images/shibuya_meiji.jpg?width=1280" type="image/jpeg" />
+
+          <img class="img-fluid" src="./assets/images/shibuya_meiji.jpg" width="1280" height="854" alt="Camino hacia el santuario Meiji desde una puerta de cedro de Torii" title="Fotografía de Rhys Abel de Pexels" loading="lazy">
 
         </picture> 
       </div>  

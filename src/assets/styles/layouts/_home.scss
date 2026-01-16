@@ -31,12 +31,6 @@ header {
   letter-spacing: 0.75rem;
 }
 
-.header__paragraph {
-  margin-block-start: 0.5rem;
-  font-size: 2rem;
-  font-weight: 900;
-}
-
 /********** NAVIGATION **********/
 
 nav {
@@ -153,14 +147,6 @@ main {
 
 .h2__title {
   padding: 1rem 0;
-}
-
-.text__style {
-  @include variables.text-color(variables.$card-title-color);
-  font-size: clamp(1rem, 5vw, 1.5rem);
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
-  text-decoration-style: dashed;
 }
 
 /********** FOOTER **********/
@@ -468,12 +454,12 @@ caption {
 
 .animation__title span {
   display: inline-block;
-  transform: translateX(100vw);
-  animation: animated-title 0.5s ease-out forwards;
   /* Cambio de font-size en el span porque en local se dimensionaba bien el título
      pero al subirlo a netlify no cambiaba el tamaño*/
   //font-size: clamp(1.1rem, 10vw, 2.1rem);
   font-size: 3rem;
+  transform: translateX(100vw);
+  animation: animated-title 0.5s ease-out forwards;
 }
 
 /* Para este código se ha creado en assets/scripts/main.js una función de JavaScript
@@ -500,7 +486,7 @@ caption {
   position: relative;
   display: inline-block;
   padding: clamp(0.1rem, 5vw, 0.8rem) 0;
-  margin-top: .5rem;
+  margin-block-start: 0.5rem;
 }
 
 .animation__line::after,
@@ -553,8 +539,8 @@ caption {
    Se ha hecho sobre el main ya que previamente se había hecho un contenedor padre (con un <div>) para que 
    no se produjese el desbordamiento fuera del contenedor, pero aparecía una barra de scroll marcando el contenedor.*/
 .flower__container {
+  margin-block-start: 0.25rem;
   overflow-x: hidden;
-  margin-top: .25rem;
 }
 
 .animation__flower {
@@ -852,7 +838,6 @@ caption {
 }
 /*** fin de Animaciones y Clip-paths ***/
 
-
 /******** Estilos de texto ********/
 .text__style-1,
 .text__style-2 {
@@ -913,10 +898,6 @@ caption {
     font-size: 2.5rem;
   }
 
-  .header__paragraph {
-    font-size: 1.5rem;
-  }
-
   main {
     padding: 1rem;
   }
@@ -925,7 +906,7 @@ caption {
     font-size: 0.95rem;
   }
 
-  .animation__title span { 
+  .animation__title span {
     font-size: 2.5rem;
   }
 }
@@ -933,10 +914,6 @@ caption {
 @media (max-width: 480px) {
   .header__title {
     font-size: 2rem;
-  }
-
-  .header__paragraph {
-    font-size: 1rem;
   }
 
   .card__image {
@@ -998,5 +975,4 @@ caption {
   .animation__title span {
     font-size: 1.7rem;
   }
-  
 }

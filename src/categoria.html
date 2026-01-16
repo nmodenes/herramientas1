@@ -10,6 +10,8 @@
 
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss">
+  <!--Añadido preload a la imagen SVG del background del header-->
+  <link rel="preload" type="image/svg+xml" href="./assets/images/wave.svg" as="image" fetchpriority="high">
 
 </head>
 
@@ -23,13 +25,13 @@
   <main class="flower__container">
 
     <div class="animation__flower">
-      <img class="flower" src="./assets/images/sakura-flower.svg" alt="flor de sakura">
-      <img class="flower" src="./assets/images/sakura-flower.svg" alt="flor de sakura">
-      <img class="flower" src="./assets/images/sakura-flower.svg" alt="flor de sakura">
-      <img class="flower" src="./assets/images/sakura-flower.svg" alt="flor de sakura">
-      <img class="flower" src="./assets/images/sakura-flower.svg" alt="flor de sakura">
-      <img class="flower" src="./assets/images/sakura-flower.svg" alt="flor de sakura">
-      <img class="flower" src="./assets/images/sakura-flower.svg" alt="flor de sakura">
+      <img class="flower" src="./assets/images/sakura-flower.svg" alt="flor de sakura" fetchpriority="high">
+      <img class="flower" src="./assets/images/sakura-flower.svg" alt="flor de sakura" fetchpriority="high">
+      <img class="flower" src="./assets/images/sakura-flower.svg" alt="flor de sakura" fetchpriority="high">
+      <img class="flower" src="./assets/images/sakura-flower.svg" alt="flor de sakura" fetchpriority="high">
+      <img class="flower" src="./assets/images/sakura-flower.svg" alt="flor de sakura" fetchpriority="high">
+      <img class="flower" src="./assets/images/sakura-flower.svg" alt="flor de sakura" fetchpriority="high">
+      <img class="flower" src="./assets/images/sakura-flower.svg" alt="flor de sakura" fetchpriority="high">
     </div>
 
     <div class="animation__title">
@@ -51,7 +53,7 @@
             <picture>
               <source srcset="./assets/images/Sensoji_Temple.jpg?as=avif" type="image/avif" />
               <source srcset="./assets/images/Sensoji_Temple.jpg?as=webp" type="image/webp" />
-              <img class="card__image" width="512" alt="Templo Sensō-ji" src="./assets/images/Sensoji_Temple.jpg" title="Daniel L. Lu (user:dllu), CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons">
+              <img class="card__image" width="512" height="200" alt="Templo Sensō-ji" src="./assets/images/Sensoji_Temple.jpg" title="Daniel L. Lu (user:dllu), CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" fetchpriority="high">
             </picture>
           </a>
           <div class="cardList__content">
@@ -85,7 +87,7 @@
             <picture>
               <source srcset="./assets/images/Shibuya.jpg?as=avif" type="image/avif" />
               <source srcset="./assets/images/Shibuya.jpg?as=webp" type="image/webp" />
-              <img class="card__image" width="512" alt="Barrio de Shibuya" src="./assets/images/Shibuya.jpg" title="Benh LIEU SONG (Flickr), CC BY-SA 2.0 &lt;https://creativecommons.org/licenses/by-sa/2.0&gt;, via Wikimedia Commons" >
+              <img class="card__image" width="512" height="200" alt="Barrio de Shibuya" src="./assets/images/Shibuya.jpg" title="Benh LIEU SONG (Flickr), CC BY-SA 2.0 &lt;https://creativecommons.org/licenses/by-sa/2.0&gt;, via Wikimedia Commons" fetchpriority="auto">
             </picture>
           </a>
           <div class="cardList__content">
@@ -110,7 +112,7 @@
             <picture>
               <source srcset="./assets/images/Tokyo_Imperial_Palace.jpg?as=avif" type="image/avif" />
               <source srcset="./assets/images/Tokyo_Imperial_Palace.jpg?as=webp" type="image/webp" />
-              <img class="card__image" width="512" alt="Palacio Imperial de Tokio en el barrio de Chiyoda" src="./assets/images/Tokyo_Imperial_Palace.jpg" title="Pierre Blaché from Paris, France, CC0, via Wikimedia Commons">
+              <img class="card__image" width="512" height="200" alt="Palacio Imperial de Tokio en el barrio de Chiyoda" src="./assets/images/Tokyo_Imperial_Palace.jpg" title="Pierre Blaché from Paris, France, CC0, via Wikimedia Commons" fetchpriority="auto">
             </picture>
           </a>
           <div class="cardList__content">
@@ -131,7 +133,7 @@
             <picture>
               <source srcset="./assets/images/Tokyo_Tower.jpg?as=avif" type="image/avif" />
               <source srcset="./assets/images/Tokyo_Tower.jpg?as=webp" type="image/webp" />
-              <img class="card__image" width="512" alt="Torre de Tokio en el barrio de Minato" src="./assets/images/Tokyo_Tower.jpg" title="Kakidai, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" loading="lazy">
+              <img class="card__image" width="512" height="200" alt="Torre de Tokio en el barrio de Minato" src="./assets/images/Tokyo_Tower.jpg" title="Kakidai, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" loading="lazy">
             </picture>
           </a>
           <div class="cardList__content">
@@ -151,7 +153,7 @@
             <picture>
               <source srcset="./assets/images/Shinjuku.jpg?as=avif" type="image/avif" />
               <source srcset="./assets/images/Shinjuku.jpg?as=webp" type="image/webp" />
-              <img class="card__image" width="512" alt="Barrio de Shinjuku" src="./assets/images/Shinjuku.jpg" title="Basile Morin, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" loading="lazy">
+              <img class="card__image" width="512" height="200" alt="Barrio de Shinjuku" src="./assets/images/Shinjuku.jpg" title="Basile Morin, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" loading="lazy">
             </picture>
           </a>
           <div class="cardList__content">
@@ -171,7 +173,7 @@
             <picture>
               <source srcset="./assets/images/Tokyo_Skytree.jpg?as=avif" type="image/avif" />
               <source srcset="./assets/images/Tokyo_Skytree.jpg?as=webp" type="image/webp" />
-              <img class="card__image" class="card__image" width="512" alt="Tokyo Skytree" src="./assets/images/Tokyo_Skytree.jpg" title="photoAC, Copyrighted free use, via Wikimedia Commons" loading="lazy">
+              <img class="card__image" class="card__image" width="512" height="200" alt="Tokyo Skytree" src="./assets/images/Tokyo_Skytree.jpg" title="photoAC, Copyrighted free use, via Wikimedia Commons" loading="lazy">
             </picture>
           </a>
           <div class="cardList__content">
@@ -191,7 +193,7 @@
             <picture>
               <source srcset="./assets/images/Odaiba.jpg?as=avif" type="image/avif" />
               <source srcset="./assets/images/Odaiba.jpg?as=webp" type="image/webp" />
-              <img class="card__image" width="512" alt="Isla de Odaiba" src="./assets/images/Odaiba.jpg" title="Nesnad, CC BY 4.0 &lt;https://creativecommons.org/licenses/by/4.0&gt;, via Wikimedia Commons" loading="lazy">
+              <img class="card__image" width="512" height="200" alt="Isla de Odaiba" src="./assets/images/Odaiba.jpg" title="Nesnad, CC BY 4.0 &lt;https://creativecommons.org/licenses/by/4.0&gt;, via Wikimedia Commons" loading="lazy">
             </picture>
           </a>
           <div class="cardList__content">
